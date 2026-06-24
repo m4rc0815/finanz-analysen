@@ -66,11 +66,11 @@ export const RANKING_META = {
       "Aggregiertes Ranking nach 3–5 Jahren Kurspotenzial — Wachstum und Momentum kombiniert.",
   },
   "00_Momentum-Aktien USA-EU-Asien – 5-Jahres-Shortlist 2026-06-23": {
-    slug: "momentum-shortlist",
-    title: "Momentum-Shortlist",
+    slug: "momentum-ranking",
+    title: "Momentum-Ranking",
     eyebrow: "USA · EU · Asien",
     teaser:
-      "Momentum-Watchlist über drei Regionen und neun Branchen — Quality- und aggressive Titel.",
+      "Momentum-Ranking über drei Regionen und neun Branchen — Quality- und aggressive Titel.",
   },
   "00_Weltraum-Aktien 2026-06-15": {
     slug: "weltraum-ranking",
