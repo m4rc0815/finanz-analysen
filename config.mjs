@@ -72,6 +72,13 @@ export const RANKING_META = {
     teaser:
       "Momentum-Watchlist über drei Regionen und neun Branchen — Quality- und aggressive Titel.",
   },
+  "00_Weltraum-Aktien 2026-06-15": {
+    slug: "weltraum-ranking",
+    title: "Weltraum-Ranking",
+    eyebrow: "Raumfahrt & Space",
+    teaser:
+      "Weltraum-Aktien im Überblick: Pure-Plays (Raketen, Satelliten, Erdbeobachtung) vs. Defense-Primes — bewertet nach Risiko, Bewertung und Weltraum-Bezug.",
+  },
 };
 
 // --- Markt-Seiten -----------------------------------------------------------
@@ -137,6 +144,25 @@ export const TICKER_SEKTOR_OVERRIDE = {
   ZM: "Software & Internet", // Zoom
   KIT: "Industrie & Verteidigung", // Kitron (KIT.OL)
   SIE: "Industrie & Verteidigung", // Siemens AG
+  // Weltraum-Welle — Pure-Plays
+  RKLB: "Raumfahrt & Satelliten", // Rocket Lab
+  ASTS: "Raumfahrt & Satelliten", // AST SpaceMobile
+  LUNR: "Raumfahrt & Satelliten", // Intuitive Machines
+  PL: "Raumfahrt & Satelliten",   // Planet Labs
+  RDW: "Raumfahrt & Satelliten",  // Redwire
+  BKSY: "Raumfahrt & Satelliten", // BlackSky Technology
+  SPCE: "Raumfahrt & Satelliten", // Virgin Galactic
+  IRDM: "Raumfahrt & Satelliten", // Iridium Communications
+  SESG: "Raumfahrt & Satelliten", // SES S.A.
+  // Weltraum-Welle — Defense/Aerospace-Primes (indirekte Plays)
+  LMT: "Industrie & Verteidigung",  // Lockheed Martin
+  NOC: "Industrie & Verteidigung",  // Northrop Grumman
+  LHX: "Industrie & Verteidigung",  // L3Harris
+  RTX: "Industrie & Verteidigung",  // RTX Corporation
+  AIR: "Industrie & Verteidigung",  // Airbus
+  BA:  "Industrie & Verteidigung",  // Boeing
+  HON: "Industrie & Verteidigung",  // Honeywell International
+  PLTR: "Software & Internet",      // Palantir (Defense-/Space-Software)
 };
 
 // --- Region aus Ticker-Suffix ----------------------------------------------
@@ -147,8 +173,10 @@ export const ASIA_SUFFIXES = new Set(["HK", "KS", "T", "TW", "SS", "SZ", "KQ"]);
 
 // Ticker-Wurzel → Region-Override (ADRs/Sonderfälle, wo das Suffix täuscht).
 export const REGION_OVERRIDE = {
-  TSM: "Asien", // Taiwan Semiconductor (US-ADR)
-  MUFG: "Asien", // Mitsubishi UFJ (US-ADR)
-  BABA: "Asien", // Alibaba (US-ADR)
-  NVO: "Europa", // Novo Nordisk (US-ADR, dänisch)
+  TSM: "Asien",   // Taiwan Semiconductor (US-ADR)
+  MUFG: "Asien",  // Mitsubishi UFJ (US-ADR)
+  BABA: "Asien",  // Alibaba (US-ADR)
+  NVO: "Europa",  // Novo Nordisk (US-ADR, dänisch)
+  AIR: "Europa",  // Airbus (Euronext Paris, kein .PA-Suffix im Frontmatter)
+  SESG: "Europa", // SES S.A. (Euronext Paris, kein .PA-Suffix im Frontmatter)
 };
