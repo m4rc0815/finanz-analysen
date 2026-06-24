@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Archiv · Finanzanalysen mit Claude</title>
+<meta name="description" content="Aktienanalysen &amp; Rankings — Keine Anlageberatung — rein informative Auswertung öffentlich verfügbarer Daten.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="">
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="wordmark" href="../index.html">
+      <span class="wm-main">Finanzanalysen</span><span class="wm-accent">mit&nbsp;Claude</span>
+    </a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-cb" hidden>
+    <nav class="main-nav" aria-label="Hauptnavigation"><a href="../index.html">Start</a><a href="../analysen/index.html">Analysen</a><a href="../rankings/index.html">Rankings</a><a href="../markt/index.html">Markt</a><a href="../archiv/index.html" class="is-active">Archiv</a><a href="../disclaimer.html">Disclaimer</a></nav>
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menü öffnen">☰</label>
+  </div>
+</header>
+<main id="main">
+<section class="hero">
+  <div class="container">
+    <p class="eyebrow">Frühere Analysen</p>
+    <h1 class="hero-title">Archiv</h1>
+    <p class="hero-meta">13 archivierte Analysen</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="archiv-note">Diese Analysen wurden ins Archiv verschoben. Kurse und Kennzahlen beziehen sich auf den damaligen Datenstand und können deutlich veraltet sein. Aktuelle Analysen findest du unter „Analysen“.</div>
+    <div class="filterbar">
+      <input type="search" id="f-search" class="f-input" placeholder="Unternehmen oder Ticker suchen…" aria-label="Suche">
+      <select id="f-sektor" class="f-select" aria-label="Branche"><option value="">Alle Branchen</option><option value="Industrie &amp; Verteidigung">Industrie &amp; Verteidigung</option><option value="Software &amp; Internet">Software &amp; Internet</option><option value="Technologie &amp; Halbleiter">Technologie &amp; Halbleiter</option></select>
+      <select id="f-region" class="f-select" aria-label="Region"><option value="">Alle Regionen</option><option value="Europa">Europa</option><option value="USA">USA</option></select>
+      <select id="f-sort" class="f-select" aria-label="Sortierung">
+        <option value="name">Name A–Z</option>
+        <option value="rating">Score (hoch → niedrig)</option>
+        <option value="datum">Neueste zuerst</option>
+      </select>
+      <p class="result-count" id="f-count"></p>
+    </div>
+    <div class="card-grid" id="analyse-grid">
+      <a class="card analyse-card" href="../archiv/alphabet-inc.html"
+        data-name="alphabet inc." data-ticker="googl"
+        data-sektor="Software &amp; Internet" data-region="USA"
+        data-rating="7.8" data-datum="2026-05-30">
+        <p class="eyebrow">Software &amp; Internet</p>
+        <h3 class="card-title">Alphabet Inc.</h3>
+        <p class="card-meta">GOOGL · USA</p>
+        <div class="card-foot">
+          <span class="card-badges"><span class="badge badge-archiv">Archiv</span><span class="badge badge-rating">Score 7.8</span></span>
+          <span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span>
+        </div>
+      </a>
+      <a class="card analyse-card" href="../archiv/amazon-com-inc.html"
+        data-name="amazon.com, inc." data-ticker="amzn"
+        data-sektor="Software &amp; Internet" data-region="USA"
+        data-rating="8.9" data-datum="2026-05-31">
+        <p class="eyebrow">Software &amp; Internet</p>
+        <h3 class="card-title">Amazon.com, Inc.</h3>
+        <p class="card-meta">AMZN · USA</p>
+        <div class="card-foot">
+          <span class="card-badges"><span class="badge badge-archiv">Archiv</span><span class="badge badge-rating">Score 8.9</span></span>
+          <span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span>
+        </div>
+      </a>
+      <a class="card analyse-card" href="../archiv/arm-holdings-plc.html"
+        data-name="arm holdings plc" data-ticker="arm"
+        data-sektor="Technologie &amp; Halbleiter" data-region="USA"
+        data-rating="5.7" data-datum="2026-05-31">
+        <p class="eyebrow">Technologie &amp; Halbleiter</p>
+        <h3 class="card-title">ARM Holdings plc</h3>
+        <p class="card-meta">ARM · USA</p>
+        <div class="card-foot">
+          <span class="card-badges"><span class="badge badge-archiv">Archiv</span><span class="badge badge-rating">Score 5.7</span></span>
+          <span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span>
+        </div>
+      </a>
+      <a class="card analyse-card" href="../archiv/asml-holding-n-v.html"
+        data-name="asml holding n.v." data-ticker="asml"
+        data-sektor="Technologie &amp; Halbleiter" data-region="USA"
+        data-rating="6.5" data-datum="2026-05-31">
+        <p class="eyebrow">Technologie &amp; Halbleiter</p>
+        <h3 class="card-title">ASML Holding N.V.</h3>
+        <p class="card-meta">ASML · USA</p>
+        <div class="card-foot">
+          <span class="card-badges"><span class="badge badge-archiv">Archiv</span><span class="badge badge-rating">Score 6.5</span></span>
+          <span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span>
+        </div>
+      </a>
+      <a class="card analyse-card" href="../archiv/broadcom-inc.html"
+        data-name="broadcom inc." data-ticker="avgo"
+        data-sektor="Technologie &amp; Halbleiter" data-region="USA"
+        data-rating="7.1" data-datum="2026-05-31">
+        <p class="eyebrow">Technologie &amp; Halbleiter</p>
+        <h3 class="card-title">Broadcom Inc.</h3>
+        <p class="card-meta">AVGO · USA</p>
+        <div class="card-foot">
+          <span class="card-badges"><span class="badge badge-archiv">Archiv</span><span class="badge badge-rating">Score 7.1</span></span>
+          <span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span>
+        </div>
+      </a>
+      <a class="card analyse-card" href="../archiv/cloudflare-inc.html"
+        data-name="cloudflare, inc." data-ticker="net"
+        data-sektor="Software &amp; Internet" data-region="USA"
+        data-rating="7.6" data-datum="2026-05-30">
+        <p class="eyebrow">Software &amp; Internet</p>
+        <h3 class="card-title">Cloudflare, Inc.</h3>
+        <p class="card-meta">NET · USA</p>
+        <div class="card-foot">
+          <span class="card-badges"><span class="badge badge-archiv">Archiv</span><span class="badge badge-rating">Score 7.6</span></span>
+          <span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span>
+        </div>
+      </a>
+      <a class="card analyse-card" href="../archiv/ibm.html"
+        data-name="ibm" data-ticker="ibm"
+        data-sektor="Software &amp; Internet" data-region="USA"
+        data-rating="7" data-datum="2026-05-30">
+        <p class="eyebrow">Software &amp; Internet</p>
+        <h3 class="card-title">IBM</h3>
+        <p class="card-meta">IBM · USA</p>
+        <div class="card-foot">
+          <span class="card-badges"><span class="badge badge-archiv">Archiv</span><span class="badge badge-rating">Score 7</span></span>
+          <span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span>
+        </div>
+      </a>
+      <a class="card analyse-card" href="../archiv/kitron-asa.html"
+        data-name="kitron asa" data-ticker="kit.ol"
+        data-sektor="Industrie &amp; Verteidigung" data-region="Europa"
+        data-rating="7.2" data-datum="2026-05-30">
+        <p class="eyebrow">Industrie &amp; Verteidigung</p>
+        <h3 class="card-title">Kitron ASA</h3>
+        <p class="card-meta">KIT.OL · Europa</p>
+        <div class="card-foot">
+          <span class="card-badges"><span class="badge badge-archiv">Archiv</span><span class="badge badge-rating">Score 7.2</span></span>
+          <span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span>
+        </div>
+      </a>
+      <a class="card analyse-card" href="../archiv/lam-research.html"
+        data-name="lam research" data-ticker="lrcx"
+        data-sektor="Technologie &amp; Halbleiter" data-region="USA"
+        data-rating="6.6" data-datum="2026-05-30">
+        <p class="eyebrow">Technologie &amp; Halbleiter</p>
+        <h3 class="card-title">Lam Research</h3>
+        <p class="card-meta">LRCX · USA</p>
+        <div class="card-foot">
+          <span class="card-badges"><span class="badge badge-archiv">Archiv</span><span class="badge badge-rating">Score 6.6</span></span>
+          <span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span>
+        </div>
+      </a>
+      <a class="card analyse-card" href="../archiv/marvell-technology.html"
+        data-name="marvell technology" data-ticker="mrvl"
+        data-sektor="Technologie &amp; Halbleiter" data-region="USA"
+        data-rating="7.2" data-datum="2026-05-30">
+        <p class="eyebrow">Technologie &amp; Halbleiter</p>
+        <h3 class="card-title">Marvell Technology</h3>
+        <p class="card-meta">MRVL · USA</p>
+        <div class="card-foot">
+          <span class="card-badges"><span class="badge badge-archiv">Archiv</span><span class="badge badge-rating">Score 7.2</span></span>
+          <span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span>
+        </div>
+      </a>
+      <a class="card analyse-card" href="../archiv/nxp-semiconductors.html"
+        data-name="nxp semiconductors" data-ticker="nxpi"
+        data-sektor="Technologie &amp; Halbleiter" data-region="USA"
+        data-rating="8.1" data-datum="2026-05-30">
+        <p class="eyebrow">Technologie &amp; Halbleiter</p>
+        <h3 class="card-title">NXP Semiconductors</h3>
+        <p class="card-meta">NXPI · USA</p>
+        <div class="card-foot">
+          <span class="card-badges"><span class="badge badge-archiv">Archiv</span><span class="badge badge-rating">Score 8.1</span></span>
+          <span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span>
+        </div>
+      </a>
+      <a class="card analyse-card" href="../archiv/siemens-ag.html"
+        data-name="siemens ag" data-ticker="sie"
+        data-sektor="Industrie &amp; Verteidigung" data-region="USA"
+        data-rating="6.3" data-datum="2026-05-31">
+        <p class="eyebrow">Industrie &amp; Verteidigung</p>
+        <h3 class="card-title">Siemens AG</h3>
+        <p class="card-meta">SIE · USA</p>
+        <div class="card-foot">
+          <span class="card-badges"><span class="badge badge-archiv">Archiv</span><span class="badge badge-rating">Score 6.3</span></span>
+          <span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span>
+        </div>
+      </a>
+      <a class="card analyse-card" href="../archiv/zoom-communications.html"
+        data-name="zoom communications" data-ticker="zm"
+        data-sektor="Software &amp; Internet" data-region="USA"
+        data-rating="5.5" data-datum="2026-05-30">
+        <p class="eyebrow">Software &amp; Internet</p>
+        <h3 class="card-title">Zoom Communications</h3>
+        <p class="card-meta">ZM · USA</p>
+        <div class="card-foot">
+          <span class="card-badges"><span class="badge badge-archiv">Archiv</span><span class="badge badge-rating">Score 5.5</span></span>
+          <span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span>
+        </div>
+      </a>
+    </div>
+    <p class="no-results" id="f-empty" hidden>Keine Analysen passen zu deiner Auswahl.</p>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <p class="wordmark wordmark-footer"><span class="wm-main">Finanzanalysen</span><span class="wm-accent">mit&nbsp;Claude</span></p>
+      <p class="footer-note">Keine Anlageberatung — rein informative Auswertung öffentlich verfügbarer Daten.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer"><a href="../index.html">Start</a><a href="../analysen/index.html">Analysen</a><a href="../rankings/index.html">Rankings</a><a href="../markt/index.html">Markt</a><a href="../archiv/index.html" class="is-active">Archiv</a><a href="../disclaimer.html">Disclaimer</a></nav>
+    <div class="footer-meta">
+      <p>✦ Erstellt mit Claude</p>
+      <p><a href="../disclaimer.html">Disclaimer &amp; Hinweise</a></p>
+    </div>
+  </div>
+</footer>
+<script src="../assets/counter.js" defer></script>
+<script src="../assets/filter.js" defer></script>
+</body>
+</html>

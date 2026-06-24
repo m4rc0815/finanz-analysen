@@ -11,6 +11,7 @@ const NAV = [
   { key: "analysen", label: "Analysen", href: (r) => `${r}analysen/index.html` },
   { key: "rankings", label: "Rankings", href: (r) => `${r}rankings/index.html` },
   { key: "markt", label: "Markt", href: (r) => `${r}markt/index.html` },
+  { key: "archiv", label: "Archiv", href: (r) => `${r}archiv/index.html` },
   { key: "disclaimer", label: "Disclaimer", href: (r) => `${r}disclaimer.html` },
 ];
 
@@ -105,13 +106,22 @@ export function analysisHero(a) {
     a.rating !== null
       ? `<span class="badge badge-rating">Score ${esc(a.rating)}</span>`
       : `<span class="badge badge-watch">Watchlist</span>`;
-  return `<section class="hero hero-detail">
+  const archivBadge = a.archived ? `<span class="badge badge-archiv">Archiv</span>` : "";
+  const eyebrow = `${a.archived ? "Archiv · " : ""}${esc(a.sektor)} · ${esc(a.region)}`;
+  const back = a.archived
+    ? `<a href="../archiv/index.html">${chev} Zum Archiv</a>`
+    : `<a href="../analysen/index.html">${chev} Alle Analysen</a>`;
+  const note = a.archived
+    ? `<p class="archiv-hinweis">📦 Archivierte Analyse — Datenstand ${esc(fmt(a.datum))}; Kurse und Kennzahlen können veraltet sein. Aktuelle Analysen unter <a href="../analysen/index.html">Analysen</a>.</p>`
+    : "";
+  return `<section class="hero hero-detail${a.archived ? " hero-archiv" : ""}">
   <div class="container">
-    <p class="eyebrow">${esc(a.sektor)} · ${esc(a.region)}</p>
+    <p class="eyebrow">${eyebrow}</p>
     <h1 class="hero-title">${esc(a.unternehmen)}</h1>
     <p class="hero-meta">${esc(a.ticker)} · Datenstand ${esc(fmt(a.datum))}</p>
-    <div class="badge-row">${rating}<span class="badge">${esc(a.region)}</span><span class="badge">${esc(a.sektor)}</span></div>
-    <p class="backlink"><a href="../analysen/index.html">${chev} Alle Analysen</a></p>
+    <div class="badge-row">${archivBadge}${rating}<span class="badge">${esc(a.region)}</span><span class="badge">${esc(a.sektor)}</span></div>
+    ${note}
+    <p class="backlink">${back}</p>
   </div>
 </section>`;
 }
@@ -119,11 +129,12 @@ export function analysisHero(a) {
 // ---------------------------------------------------------------------------
 // Analysen-Übersicht (filterbar)
 // ---------------------------------------------------------------------------
-export function analysenIndex(analyses, { sektoren, regionen, relRoot }) {
+export function analysenIndex(analyses, { sektoren, regionen, relRoot, intro }) {
   const opt = (arr) => arr.map((v) => `<option value="${esc(v)}">${esc(v)}</option>`).join("");
   const cards = analyses.map((a) => analyseCard(a, relRoot)).join("\n");
   return `<section class="section">
   <div class="container">
+    ${intro ? `<div class="archiv-note">${intro}</div>` : ""}
     <div class="filterbar">
       <input type="search" id="f-search" class="f-input" placeholder="Unternehmen oder Ticker suchen…" aria-label="Suche">
       <select id="f-sektor" class="f-select" aria-label="Branche"><option value="">Alle Branchen</option>${opt(sektoren)}</select>
@@ -155,7 +166,10 @@ function analyseCard(a, relRoot) {
         <p class="eyebrow">${esc(a.sektor)}</p>
         <h3 class="card-title">${esc(a.unternehmen)}</h3>
         <p class="card-meta">${esc(a.ticker)} · ${esc(a.region)}</p>
-        <div class="card-foot">${score}<span class="chevron-link">${chev} Zur Analyse</span></div>
+        <div class="card-foot">
+          <span class="card-badges">${a.archived ? `<span class="badge badge-archiv">Archiv</span>` : ""}${score}</span>
+          <span class="chevron-link">${chev} Zur Analyse</span>
+        </div>
       </a>`;
 }
 
@@ -188,7 +202,7 @@ function featureCard(item, relRoot, cta) {
 // ---------------------------------------------------------------------------
 // Startseite
 // ---------------------------------------------------------------------------
-export function landing({ rankings, markt, neueste, total, buildDate, relRoot }) {
+export function landing({ rankings, markt, neueste, total, archivCount = 0, buildDate, relRoot }) {
   const rankCols = rankings
     .map(
       (r) => `      <div class="col">
@@ -265,6 +279,17 @@ ${neuCards}
     </div>
   </div>
 </section>
+
+${archivCount ? `<section class="section section-archiv">
+  <div class="container archiv-strip">
+    <div>
+      <p class="eyebrow">Archiv</p>
+      <h2 class="band-title">Frühere Analysen</h2>
+      <p class="col-text">${archivCount} archivierte Analysen aus früheren Wellen — Datenstand älter, zur Nachverfolgung weiterhin einsehbar.</p>
+    </div>
+    <a class="btn btn-ghost" href="${relRoot}archiv/index.html">${chev} Zum Archiv</a>
+  </div>
+</section>` : ""}
 
 <section class="band band-light">
   <div class="container">

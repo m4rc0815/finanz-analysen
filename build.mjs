@@ -321,50 +321,73 @@ for (const file of files) {
 // ---------------------------------------------------------------------------
 // 2) Analysen anreichern + Dedup nach Ticker (jüngste gewinnt)
 // ---------------------------------------------------------------------------
-const analyses = [];
-for (const d of docs.filter((d) => d.type === "analyse")) {
-  const ticker = (d.fm.ticker || "").toString().trim();
-  const unternehmen = (d.fm.unternehmen || d.basename.replace(/\s+Analyse.*$/, "")).toString().trim();
-  const datum = isoDate(d.fm.erstellt, d.basename);
-  analyses.push({
-    ...d,
-    ticker,
-    unternehmen,
-    datum,
-    sektor: sektorFor(d.fm, ticker),
-    region: regionFor(ticker),
-    rating: ratingFor(d.fm),
-    slug: slugify(unternehmen || d.basename),
+function enrichAnalyses(list) {
+  return list.map((d) => {
+    const ticker = (d.fm.ticker || "").toString().trim();
+    const unternehmen = (d.fm.unternehmen || d.basename.replace(/\s+Analyse.*$/, "")).toString().trim();
+    return {
+      ...d,
+      ticker,
+      unternehmen,
+      datum: isoDate(d.fm.erstellt, d.basename),
+      sektor: sektorFor(d.fm, ticker),
+      region: regionFor(ticker),
+      rating: ratingFor(d.fm),
+      slug: slugify(unternehmen || d.basename),
+    };
   });
 }
-
-// Dedup
-const byTicker = new Map();
-for (const a of analyses) {
-  const key = a.ticker || a.slug;
-  const prev = byTicker.get(key);
-  if (!prev || String(a.datum) > String(prev.datum)) {
-    if (prev) warn(`Dublette übersprungen: ${prev.basename} (zugunsten ${a.basename})`);
-    byTicker.set(key, a);
-  } else {
-    warn(`Dublette übersprungen: ${a.basename} (zugunsten ${prev.basename})`);
+function dedupByTicker(list) {
+  const byTicker = new Map();
+  for (const a of list) {
+    const key = a.ticker || a.slug;
+    const prev = byTicker.get(key);
+    if (!prev || String(a.datum) > String(prev.datum)) {
+      if (prev) warn(`Dublette übersprungen: ${prev.basename} (zugunsten ${a.basename})`);
+      byTicker.set(key, a);
+    } else {
+      warn(`Dublette übersprungen: ${a.basename} (zugunsten ${prev.basename})`);
+    }
+  }
+  return [...byTicker.values()].sort((a, b) => a.unternehmen.localeCompare(b.unternehmen, "de"));
+}
+function assignSlugs(list, dir) {
+  const seen = new Set();
+  for (const a of list) {
+    let s = a.slug;
+    let n = 2;
+    while (seen.has(s)) s = `${a.slug}-${n++}`;
+    a.slug = s;
+    seen.add(s);
+    a.url = `${dir}/${a.slug}.html`;
+    a.outPath = path.join(DOCS, dir, `${a.slug}.html`);
   }
 }
-const uniqueAnalyses = [...byTicker.values()].sort((a, b) =>
-  a.unternehmen.localeCompare(b.unternehmen, "de")
-);
 
-// Slug-Kollisionen auflösen
-const seenSlugs = new Set();
-for (const a of uniqueAnalyses) {
-  let s = a.slug;
-  let n = 2;
-  while (seenSlugs.has(s)) s = `${a.slug}-${n++}`;
-  a.slug = s;
-  seenSlugs.add(s);
-  a.url = `analysen/${a.slug}.html`;
-  a.outPath = path.join(DOCS, "analysen", `${a.slug}.html`);
+// Aktive Analysen (aus dem Finanz-Ordner)
+const uniqueAnalyses = dedupByTicker(enrichAnalyses(docs.filter((d) => d.type === "analyse")));
+assignSlugs(uniqueAnalyses, "analysen");
+
+// Archivierte Analysen (aus "06 Archiv/Aktienanalysen*") → eigener Archiv-Bereich
+const archiveDocs = [];
+if (fs.existsSync(cfg.ARCHIVE_ROOT)) {
+  for (const sub of fs.readdirSync(cfg.ARCHIVE_ROOT)) {
+    if (!sub.startsWith(cfg.ARCHIVE_DIR_PREFIX)) continue;
+    const subDir = path.join(cfg.ARCHIVE_ROOT, sub);
+    if (!fs.statSync(subDir).isDirectory()) continue;
+    for (const file of fs.readdirSync(subDir)) {
+      if (file.endsWith(".md") && classify(file.replace(/\.md$/, "")) === "analyse") {
+        const { data: fm, content } = matter(fs.readFileSync(path.join(subDir, file), "utf8"));
+        archiveDocs.push({ basename: file.replace(/\.md$/, ""), type: "analyse", fm, content });
+      } else if (IMG_RE.test(file) && !imageIndex.has(file)) {
+        imageIndex.set(file, path.join(subDir, file)); // evtl. mit-archivierte Charts
+      }
+    }
+  }
 }
+const archivedAnalyses = dedupByTicker(enrichAnalyses(archiveDocs));
+archivedAnalyses.forEach((a) => { a.archived = true; });
+assignSlugs(archivedAnalyses, "archiv");
 
 // Rankings + Markt
 const rankings = docs
@@ -406,6 +429,8 @@ for (const r of rankings)
   registry.set(r.basename, { url: r.url, title: r.title, type: "ranking" });
 for (const m of markt)
   registry.set(m.basename, { url: m.url, title: m.title, type: "markt" });
+for (const a of archivedAnalyses)
+  registry.set(a.basename, { url: a.url, title: a.unternehmen, type: "archiv" });
 
 // ---------------------------------------------------------------------------
 // 4) Seiten rendern
@@ -437,6 +462,22 @@ for (const a of uniqueAnalyses) {
       relRoot: "../",
       active: "analysen",
       hero,
+      content: `<article class="prose">${contentHtml}</article>`,
+    })
+  );
+}
+
+// 4a2) Archiv-Detailseiten
+for (const a of archivedAnalyses) {
+  const { body } = splitHeading(a.content);
+  const contentHtml = renderBody(body, { relRoot: "../", registry, chartFiles, copyJobs });
+  writePage(
+    a.outPath,
+    T.documentShell({
+      title: `${a.unternehmen} (${a.ticker}) — Archiv`,
+      relRoot: "../",
+      active: "archiv",
+      hero: T.analysisHero(a),
       content: `<article class="prose">${contentHtml}</article>`,
     })
   );
@@ -533,6 +574,33 @@ writePage(
   })
 );
 
+// 4f2) Archiv-Übersicht (filterbar) — nur wenn archivierte Analysen existieren
+if (archivedAnalyses.length) {
+  const aSektoren = [...new Set(archivedAnalyses.map((a) => a.sektor))].sort((x, y) => x.localeCompare(y, "de"));
+  const aRegionen = [...new Set(archivedAnalyses.map((a) => a.region))].sort();
+  writePage(
+    path.join(DOCS, "archiv", "index.html"),
+    T.documentShell({
+      title: "Archiv",
+      relRoot: "../",
+      active: "archiv",
+      hero: T.simpleHero({
+        eyebrow: "Frühere Analysen",
+        title: "Archiv",
+        meta: `${archivedAnalyses.length} archivierte Analysen`,
+      }),
+      content: T.analysenIndex(archivedAnalyses, {
+        sektoren: aSektoren,
+        regionen: aRegionen,
+        relRoot: "../",
+        intro:
+          "Diese Analysen wurden ins Archiv verschoben. Kurse und Kennzahlen beziehen sich auf den damaligen Datenstand und können deutlich veraltet sein. Aktuelle Analysen findest du unter „Analysen“.",
+      }),
+      scripts: `<script src="../assets/filter.js" defer></script>`,
+    })
+  );
+}
+
 // 4g) Disclaimer
 writePage(
   path.join(DOCS, "disclaimer.html"),
@@ -561,6 +629,7 @@ writePage(
       markt,
       neueste,
       total: uniqueAnalyses.length,
+      archivCount: archivedAnalyses.length,
       buildDate,
       relRoot: "",
     }),
@@ -619,6 +688,7 @@ console.log(`Seiten geschrieben : ${pageCount}`);
 console.log(`  Analysen         : ${uniqueAnalyses.length}`);
 console.log(`  Rankings         : ${rankings.length}`);
 console.log(`  Markt            : ${markt.length}`);
+console.log(`  Archiv           : ${archivedAnalyses.length}`);
 console.log(`Charts kopiert     : ${copied}`);
 console.log(`Stooq-Galerien     : ${stooqRemoved} entfernt (externe Hotlinks)`);
 console.log(`Branchen-Buckets   : ${sektoren.join(", ")}`);

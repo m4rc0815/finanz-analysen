@@ -7,6 +7,12 @@ export const VAULT_ROOT =
 export const SRC_DIR = `${VAULT_ROOT}/03 Bereiche/Finanzen & Börse`;
 export const CHARTS_SRC = `${VAULT_ROOT}/07 Anhänge/Aktienanalyse`;
 
+// Archiv: archivierte Analysen werden als eigener "Archiv"-Bereich publiziert
+// (separat von den aktiven Analysen). Auto-Discovery: alle Unterordner von
+// "06 Archiv", deren Name mit "Aktienanalysen" beginnt (z. B. "Aktienanalysen 2026-05").
+export const ARCHIVE_ROOT = `${VAULT_ROOT}/06 Archiv`;
+export const ARCHIVE_DIR_PREFIX = "Aktienanalysen";
+
 // --- Seiten-Metadaten -------------------------------------------------------
 export const SITE = {
   projectName: "Finanzanalysen mit Claude",
@@ -118,6 +124,13 @@ export const TICKER_SEKTOR_OVERRIDE = {
   MUV2: "Versicherung",
   CS: "Versicherung", // AXA
   ALV: "Versicherung", // Allianz
+  AMZN: "Software & Internet", // Amazon
+  ARM: "Technologie & Halbleiter", // ARM Holdings
+  ASML: "Technologie & Halbleiter", // ASML
+  LRCX: "Technologie & Halbleiter", // Lam Research
+  MRVL: "Technologie & Halbleiter", // Marvell
+  NXPI: "Technologie & Halbleiter", // NXP Semiconductors
+  GOOGL: "Software & Internet", // Alphabet
 };
 
 // --- Region aus Ticker-Suffix ----------------------------------------------
