@@ -39,6 +39,10 @@ function nav(relRoot, active) {
 
 const chev = '<span class="chev" aria-hidden="true">›</span>';
 
+// Score deutsch formatieren: Dezimal-Komma, Ganzzahlen mit ",0" (z. B. 7 → "7,0", 7.55 → "7,55")
+const fmtScore = (r) =>
+  (Number.isInteger(r) ? r.toFixed(1) : String(r)).replace(".", ",");
+
 export function chevronLink(text, href) {
   if (href) return `<a class="chevron-link" href="${href}">${chev} ${esc(text)}</a>`;
   return `<span class="chevron-link">${chev} ${esc(text)}</span>`;
@@ -119,7 +123,7 @@ export function simpleHero({ eyebrow, title, meta }) {
 export function analysisHero(a) {
   const rating =
     a.rating !== null
-      ? `<span class="badge badge-rating">Score ${esc(a.rating)}</span>`
+      ? `<span class="badge badge-rating">Score ${esc(fmtScore(a.rating))}</span>`
       : `<span class="badge badge-watch">Watchlist</span>`;
   const archivBadge = a.archived ? `<span class="badge badge-archiv">Archiv</span>` : "";
   const eyebrow = `${a.archived ? "Archiv · " : ""}${esc(a.sektor)} · ${esc(a.region)}`;
@@ -172,7 +176,7 @@ ${cards}
 function analyseCard(a, relRoot) {
   const score =
     a.rating !== null
-      ? `<span class="badge badge-rating">Score ${esc(a.rating)}</span>`
+      ? `<span class="badge badge-rating">Score ${esc(fmtScore(a.rating))}</span>`
       : `<span class="badge badge-watch">Watchlist</span>`;
   return `      <a class="card analyse-card" href="${relRoot}${a.url}"
         data-name="${esc(a.unternehmen.toLowerCase())}" data-ticker="${esc(a.ticker.toLowerCase())}"
