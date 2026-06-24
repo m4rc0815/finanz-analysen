@@ -310,20 +310,25 @@ function injectScoreColumn(md, tickerScore) {
           rows.push(tableCells(lines[j]));
           j++;
         }
-        let scoreIdx = header.findIndex((c) => /^score$/i.test(c));
-        if (scoreIdx < 0) {
-          scoreIdx = header.length;
-          header.push("Score");
-          sep.push("---");
-        }
         const lookup = (t) =>
           tickerScore.get((t || "").toUpperCase().replace(/\*/g, "").split(".")[0].trim()) || "—";
-        out.push("| " + header.join(" | ") + " |");
-        out.push("| " + sep.join(" | ") + " |");
-        for (const cells of rows) {
-          while (cells.length < header.length) cells.push("");
-          cells[scoreIdx] = lookup(cells[tickerIdx]);
-          out.push("| " + cells.join(" | ") + " |");
+        const existing = header.findIndex((c) => /^score$/i.test(c));
+        if (existing >= 0) {
+          // vorhandene Score-Spalte an Ort und Stelle auffrischen
+          out.push("| " + header.join(" | ") + " |");
+          out.push("| " + sep.join(" | ") + " |");
+          for (const cells of rows) {
+            while (cells.length < header.length) cells.push("");
+            cells[existing] = lookup(cells[tickerIdx]);
+            out.push("| " + cells.join(" | ") + " |");
+          }
+        } else {
+          // Score als ERSTE Spalte voranstellen (wie "Punkte" bei den anderen Rankings)
+          out.push("| " + ["Score", ...header].join(" | ") + " |");
+          out.push("| " + ["---", ...sep].join(" | ") + " |");
+          for (const cells of rows) {
+            out.push("| " + [lookup(cells[tickerIdx]), ...cells].join(" | ") + " |");
+          }
         }
         i = j;
         continue;
