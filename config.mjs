@@ -28,6 +28,7 @@ export const SITE = {
 export const EXCLUDE_BASENAMES = new Set([
   "Allianz Depot-Position", // privat: echtes Depot
   "Finanzen & Börse", // interner Bereichs-Index (verlinkt unpublizierte Notizen)
+  "Finanzanalysen Homepage", // interne Doku der Webseite selbst — nicht publizieren
 ]);
 
 // Basename-Präfixe, die ausgeschlossen werden (z. B. Weltraum-Material).
