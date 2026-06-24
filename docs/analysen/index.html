@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alle Analysen · Finanzanalysen mit Claude</title>
+<meta name="description" content="Aktienanalysen &amp; Rankings — Keine Anlageberatung — rein informative Auswertung öffentlich verfügbarer Daten.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="">
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="wordmark" href="../index.html">
+      <span class="wm-main">Finanzanalysen</span><span class="wm-accent">mit&nbsp;Claude</span>
+    </a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-cb" hidden>
+    <nav class="main-nav" aria-label="Hauptnavigation"><a href="../index.html">Start</a><a href="../analysen/index.html" class="is-active">Analysen</a><a href="../rankings/index.html">Rankings</a><a href="../markt/index.html">Markt</a><a href="../disclaimer.html">Disclaimer</a></nav>
+    <span class="claude-pill" title="Diese Seite und ihre Inhalte wurden mit Claude erstellt.">✦ Erstellt mit Claude</span>
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menü öffnen">☰</label>
+  </div>
+</header>
+<main id="main">
+<section class="hero">
+  <div class="container">
+    <p class="eyebrow">Einzelanalysen</p>
+    <h1 class="hero-title">Alle Analysen</h1>
+    <p class="hero-meta">32 Unternehmen · 9 Branchen · 3 Regionen</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="filterbar">
+      <input type="search" id="f-search" class="f-input" placeholder="Unternehmen oder Ticker suchen…" aria-label="Suche">
+      <select id="f-sektor" class="f-select" aria-label="Branche"><option value="">Alle Branchen</option><option value="Energie">Energie</option><option value="Finanzwerte">Finanzwerte</option><option value="Gesundheit &amp; Pharma">Gesundheit &amp; Pharma</option><option value="Industrie &amp; Verteidigung">Industrie &amp; Verteidigung</option><option value="Rohstoffe">Rohstoffe</option><option value="Software &amp; Internet">Software &amp; Internet</option><option value="Technologie &amp; Halbleiter">Technologie &amp; Halbleiter</option><option value="Versicherung">Versicherung</option><option value="Versorger">Versorger</option></select>
+      <select id="f-region" class="f-select" aria-label="Region"><option value="">Alle Regionen</option><option value="Asien">Asien</option><option value="Europa">Europa</option><option value="USA">USA</option></select>
+      <select id="f-sort" class="f-select" aria-label="Sortierung">
+        <option value="name">Name A–Z</option>
+        <option value="rating">Score (hoch → niedrig)</option>
+        <option value="datum">Neueste zuerst</option>
+      </select>
+      <p class="result-count" id="f-count"></p>
+    </div>
+    <div class="card-grid" id="analyse-grid">
+      <a class="card analyse-card" href="../analysen/agnico-eagle-mines.html"
+        data-name="agnico eagle mines" data-ticker="aem"
+        data-sektor="Rohstoffe" data-region="USA"
+        data-rating="" data-datum="2026-06-23">
+        <p class="eyebrow">Rohstoffe</p>
+        <h3 class="card-title">Agnico Eagle Mines</h3>
+        <p class="card-meta">AEM · USA</p>
+        <div class="card-foot"><span class="badge badge-watch">Watchlist</span><span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span></div>
+      </a>
+      <a class="card analyse-card" href="../analysen/alibaba-group.html"
+        data-name="alibaba group" data-ticker="baba"
+        data-sektor="Software &amp; Internet" data-region="Asien"
+        data-rating="" data-datum="2026-06-23">
+        <p class="eyebrow">Software &amp; Internet</p>
+        <h3 class="card-title">Alibaba Group</h3>
+        <p class="card-meta">BABA · Asien</p>
+        <div class="card-foot"><span class="badge badge-watch">Watchlist</span><span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span></div>
+      </a>
+      <a class="card analyse-card" href="../analysen/allianz-se.html"
+        data-name="allianz se" data-ticker="alv.de"
+        data-sektor="Versicherung" data-region="Europa"
+        data-rating="" data-datum="2026-06-24">
+        <p class="eyebrow">Versicherung</p>
+        <h3 class="card-title">Allianz SE</h3>
+        <p class="card-meta">ALV.DE · Europa</p>
+        <div class="card-foot"><span class="badge badge-watch">Watchlist</span><span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span></div>
+      </a>
+      <a class="card analyse-card" href="../analysen/alphabet-inc.html"
+        data-name="alphabet inc." data-ticker="googl"
+        data-sektor="Software &amp; Internet" data-region="USA"
+        data-rating="7.8" data-datum="2026-05-30">
+        <p class="eyebrow">Software &amp; Internet</p>
+        <h3 class="card-title">Alphabet Inc.</h3>
+        <p class="card-meta">GOOGL · USA</p>
+        <div class="card-foot"><span class="badge badge-rating">Score 7.8</span><span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span></div>
+      </a>
+      <a class="card analyse-card" href="../analysen/amazon-com-inc.html"
+        data-name="amazon.com, inc." data-ticker="amzn"
+        data-sektor="Software &amp; Internet" data-region="USA"
+        data-rating="8.9" data-datum="2026-05-31">
+        <p class="eyebrow">Software &amp; Internet</p>
+        <h3 class="card-title">Amazon.com, Inc.</h3>
+        <p class="card-meta">AMZN · USA</p>
+        <div class="card-foot"><span class="badge badge-rating">Score 8.9</span><span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span></div>
+      </a>
+      <a class="card analyse-card" href="../analysen/arm-holdings-plc.html"
+        data-name="arm holdings plc" data-ticker="arm"
+        data-sektor="Technologie &amp; Halbleiter" data-region="USA"
+        data-rating="5.7" data-datum="2026-05-31">
+        <p class="eyebrow">Technologie &amp; Halbleiter</p>
+        <h3 class="card-title">ARM Holdings plc</h3>
+        <p class="card-meta">ARM · USA</p>
+        <div class="card-foot"><span class="badge badge-rating">Score 5.7</span><span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span></div>
+      </a>
+      <a class="card analyse-card" href="../analysen/asml-holding-n-v.html"
+        data-name="asml holding n.v." data-ticker="asml"
+        data-sektor="Technologie &amp; Halbleiter" data-region="USA"
+        data-rating="6.5" data-datum="2026-05-31">
+        <p class="eyebrow">Technologie &amp; Halbleiter</p>
+        <h3 class="card-title">ASML Holding N.V.</h3>
+        <p class="card-meta">ASML · USA</p>
+        <div class="card-foot"><span class="badge badge-rating">Score 6.5</span><span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span></div>
+      </a>
+      <a class="card analyse-card" href="../analysen/axa-sa.html"
+        data-name="axa sa" data-ticker="cs.pa"
+        data-sektor="Versicherung" data-region="Europa"
+        data-rating="" data-datum="2026-06-24">
+        <p class="eyebrow">Versicherung</p>
+        <h3 class="card-title">AXA SA</h3>
+        <p class="card-meta">CS.PA · Europa</p>
+        <div class="card-foot"><span class="badge badge-watch">Watchlist</span><span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span></div>
+      </a>
+      <a class="card analyse-card" href="../analysen/broadcom-inc.html"
+        data-name="broadcom inc." data-ticker="avgo"
+        data-sektor="Technologie &amp; Halbleiter" data-region="USA"
+        data-rating="7.1" data-datum="2026-05-31">
+        <p class="eyebrow">Technologie &amp; Halbleiter</p>
+        <h3 class="card-title">Broadcom Inc.</h3>
+        <p class="card-meta">AVGO · USA</p>
+        <div class="card-foot"><span class="badge badge-rating">Score 7.1</span><span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span></div>
+      </a>
+      <a class="card analyse-card" href="../analysen/caterpillar.html"
+        data-name="caterpillar" data-ticker="cat"
+        data-sektor="Industrie &amp; Verteidigung" data-region="USA"
+        data-rating="" data-datum="2026-06-23">
+        <p class="eyebrow">Industrie &amp; Verteidigung</p>
+        <h3 class="card-title">Caterpillar</h3>
+        <p class="card-meta">CAT · USA</p>
+        <div class="card-foot"><span class="badge badge-watch">Watchlist</span><span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span></div>
+      </a>
+      <a class="card analyse-card" href="../analysen/catl.html"
+        data-name="catl" data-ticker="3750.hk"
+        data-sektor="Rohstoffe" data-region="Asien"
+        data-rating="" data-datum="2026-06-23">
+        <p class="eyebrow">Rohstoffe</p>
+        <h3 class="card-title">CATL</h3>
+        <p class="card-meta">3750.HK · Asien</p>
+        <div class="card-foot"><span class="badge badge-watch">Watchlist</span><span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span></div>
+      </a>
+      <a class="card analyse-card" href="../analysen/cloudflare-inc.html"
+        data-name="cloudflare, inc." data-ticker="net"
+        data-sektor="Software &amp; Internet" data-region="USA"
+        data-rating="7.6" data-datum="2026-05-30">
+        <p class="eyebrow">Software &amp; Internet</p>
+        <h3 class="card-title">Cloudflare, Inc.</h3>
+        <p class="card-meta">NET · USA</p>
+        <div class="card-foot"><span class="badge badge-rating">Score 7.6</span><span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span></div>
+      </a>
+      <a class="card analyse-card" href="../analysen/eli-lilly.html"
+        data-name="eli lilly" data-ticker="lly"
+        data-sektor="Gesundheit &amp; Pharma" data-region="USA"
+        data-rating="" data-datum="2026-06-23">
+        <p class="eyebrow">Gesundheit &amp; Pharma</p>
+        <h3 class="card-title">Eli Lilly</h3>
+        <p class="card-meta">LLY · USA</p>
+        <div class="card-foot"><span class="badge badge-watch">Watchlist</span><span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span></div>
+      </a>
+      <a class="card analyse-card" href="../analysen/exxon-mobil.html"
+        data-name="exxon mobil" data-ticker="xom"
+        data-sektor="Energie" data-region="USA"
+        data-rating="" data-datum="2026-06-23">
+        <p class="eyebrow">Energie</p>
+        <h3 class="card-title">Exxon Mobil</h3>
+        <p class="card-meta">XOM · USA</p>
+        <div class="card-foot"><span class="badge badge-watch">Watchlist</span><span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span></div>
+      </a>
+      <a class="card analyse-card" href="../analysen/hensoldt.html"
+        data-name="hensoldt" data-ticker="hag.de"
+        data-sektor="Industrie &amp; Verteidigung" data-region="Europa"
+        data-rating="" data-datum="2026-06-23">
+        <p class="eyebrow">Industrie &amp; Verteidigung</p>
+        <h3 class="card-title">Hensoldt</h3>
+        <p class="card-meta">HAG.DE · Europa</p>
+        <div class="card-foot"><span class="badge badge-watch">Watchlist</span><span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span></div>
+      </a>
+      <a class="card analyse-card" href="../analysen/iberdrola.html"
+        data-name="iberdrola" data-ticker="ibe.mc"
+        data-sektor="Versorger" data-region="Europa"
+        data-rating="" data-datum="2026-06-23">
+        <p class="eyebrow">Versorger</p>
+        <h3 class="card-title">Iberdrola</h3>
+        <p class="card-meta">IBE.MC · Europa</p>
+        <div class="card-foot"><span class="badge badge-watch">Watchlist</span><span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span></div>
+      </a>
+      <a class="card analyse-card" href="../analysen/ibm.html"
+        data-name="ibm" data-ticker="ibm"
+        data-sektor="Software &amp; Internet" data-region="USA"
+        data-rating="7" data-datum="2026-05-30">
+        <p class="eyebrow">Software &amp; Internet</p>
+        <h3 class="card-title">IBM</h3>
+        <p class="card-meta">IBM · USA</p>
+        <div class="card-foot"><span class="badge badge-rating">Score 7</span><span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span></div>
+      </a>
+      <a class="card analyse-card" href="../analysen/interactive-brokers.html"
+        data-name="interactive brokers" data-ticker="ibkr"
+        data-sektor="Finanzwerte" data-region="USA"
+        data-rating="" data-datum="2026-06-23">
+        <p class="eyebrow">Finanzwerte</p>
+        <h3 class="card-title">Interactive Brokers</h3>
+        <p class="card-meta">IBKR · USA</p>
+        <div class="card-foot"><span class="badge badge-watch">Watchlist</span><span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span></div>
+      </a>
+      <a class="card analyse-card" href="../analysen/kitron-asa.html"
+        data-name="kitron asa" data-ticker="kit.ol"
+        data-sektor="Industrie &amp; Verteidigung" data-region="Europa"
+        data-rating="7.2" data-datum="2026-05-30">
+        <p class="eyebrow">Industrie &amp; Verteidigung</p>
+        <h3 class="card-title">Kitron ASA</h3>
+        <p class="card-meta">KIT.OL · Europa</p>
+        <div class="card-foot"><span class="badge badge-rating">Score 7.2</span><span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span></div>
+      </a>
+      <a class="card analyse-card" href="../analysen/lam-research.html"
+        data-name="lam research" data-ticker="lrcx"
+        data-sektor="Technologie &amp; Halbleiter" data-region="USA"
+        data-rating="6.6" data-datum="2026-05-30">
+        <p class="eyebrow">Technologie &amp; Halbleiter</p>
+        <h3 class="card-title">Lam Research</h3>
+        <p class="card-meta">LRCX · USA</p>
+        <div class="card-foot"><span class="badge badge-rating">Score 6.6</span><span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span></div>
+      </a>
+      <a class="card analyse-card" href="../analysen/marvell-technology.html"
+        data-name="marvell technology" data-ticker="mrvl"
+        data-sektor="Technologie &amp; Halbleiter" data-region="USA"
+        data-rating="7.2" data-datum="2026-05-30">
+        <p class="eyebrow">Technologie &amp; Halbleiter</p>
+        <h3 class="card-title">Marvell Technology</h3>
+        <p class="card-meta">MRVL · USA</p>
+        <div class="card-foot"><span class="badge badge-rating">Score 7.2</span><span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span></div>
+      </a>
+      <a class="card analyse-card" href="../analysen/mitsubishi-ufj-financial-group.html"
+        data-name="mitsubishi ufj financial group" data-ticker="mufg"
+        data-sektor="Finanzwerte" data-region="Asien"
+        data-rating="" data-datum="2026-06-23">
+        <p class="eyebrow">Finanzwerte</p>
+        <h3 class="card-title">Mitsubishi UFJ Financial Group</h3>
+        <p class="card-meta">MUFG · Asien</p>
+        <div class="card-foot"><span class="badge badge-watch">Watchlist</span><span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span></div>
+      </a>
+      <a class="card analyse-card" href="../analysen/munich-re.html"
+        data-name="munich re" data-ticker="muv2.de"
+        data-sektor="Versicherung" data-region="Europa"
+        data-rating="" data-datum="2026-06-24">
+        <p class="eyebrow">Versicherung</p>
+        <h3 class="card-title">Munich Re</h3>
+        <p class="card-meta">MUV2.DE · Europa</p>
+        <div class="card-foot"><span class="badge badge-watch">Watchlist</span><span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span></div>
+      </a>
+      <a class="card analyse-card" href="../analysen/novo-nordisk.html"
+        data-name="novo nordisk" data-ticker="novo-b.co"
+        data-sektor="Gesundheit &amp; Pharma" data-region="Europa"
+        data-rating="" data-datum="2026-06-23">
+        <p class="eyebrow">Gesundheit &amp; Pharma</p>
+        <h3 class="card-title">Novo Nordisk</h3>
+        <p class="card-meta">NOVO-B.CO · Europa</p>
+        <div class="card-foot"><span class="badge badge-watch">Watchlist</span><span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span></div>
+      </a>
+      <a class="card analyse-card" href="../analysen/nxp-semiconductors.html"
+        data-name="nxp semiconductors" data-ticker="nxpi"
+        data-sektor="Technologie &amp; Halbleiter" data-region="USA"
+        data-rating="8.1" data-datum="2026-05-30">
+        <p class="eyebrow">Technologie &amp; Halbleiter</p>
+        <h3 class="card-title">NXP Semiconductors</h3>
+        <p class="card-meta">NXPI · USA</p>
+        <div class="card-foot"><span class="badge badge-rating">Score 8.1</span><span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span></div>
+      </a>
+      <a class="card analyse-card" href="../analysen/safran.html"
+        data-name="safran" data-ticker="saf.pa"
+        data-sektor="Industrie &amp; Verteidigung" data-region="Europa"
+        data-rating="" data-datum="2026-06-23">
+        <p class="eyebrow">Industrie &amp; Verteidigung</p>
+        <h3 class="card-title">Safran</h3>
+        <p class="card-meta">SAF.PA · Europa</p>
+        <div class="card-foot"><span class="badge badge-watch">Watchlist</span><span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span></div>
+      </a>
+      <a class="card analyse-card" href="../analysen/siemens-ag.html"
+        data-name="siemens ag" data-ticker="sie"
+        data-sektor="Industrie &amp; Verteidigung" data-region="USA"
+        data-rating="6.3" data-datum="2026-05-31">
+        <p class="eyebrow">Industrie &amp; Verteidigung</p>
+        <h3 class="card-title">Siemens AG</h3>
+        <p class="card-meta">SIE · USA</p>
+        <div class="card-foot"><span class="badge badge-rating">Score 6.3</span><span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span></div>
+      </a>
+      <a class="card analyse-card" href="../analysen/siemens-energy.html"
+        data-name="siemens energy" data-ticker="enr.de"
+        data-sektor="Industrie &amp; Verteidigung" data-region="Europa"
+        data-rating="" data-datum="2026-06-23">
+        <p class="eyebrow">Industrie &amp; Verteidigung</p>
+        <h3 class="card-title">Siemens Energy</h3>
+        <p class="card-meta">ENR.DE · Europa</p>
+        <div class="card-foot"><span class="badge badge-watch">Watchlist</span><span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span></div>
+      </a>
+      <a class="card analyse-card" href="../analysen/sk-hynix.html"
+        data-name="sk hynix" data-ticker="000660.ks"
+        data-sektor="Technologie &amp; Halbleiter" data-region="Asien"
+        data-rating="" data-datum="2026-06-23">
+        <p class="eyebrow">Technologie &amp; Halbleiter</p>
+        <h3 class="card-title">SK Hynix</h3>
+        <p class="card-meta">000660.KS · Asien</p>
+        <div class="card-foot"><span class="badge badge-watch">Watchlist</span><span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span></div>
+      </a>
+      <a class="card analyse-card" href="../analysen/tsmc.html"
+        data-name="tsmc" data-ticker="tsm"
+        data-sektor="Technologie &amp; Halbleiter" data-region="Asien"
+        data-rating="" data-datum="2026-06-23">
+        <p class="eyebrow">Technologie &amp; Halbleiter</p>
+        <h3 class="card-title">TSMC</h3>
+        <p class="card-meta">TSM · Asien</p>
+        <div class="card-foot"><span class="badge badge-watch">Watchlist</span><span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span></div>
+      </a>
+      <a class="card analyse-card" href="../analysen/unicredit.html"
+        data-name="unicredit" data-ticker="ucg.mi"
+        data-sektor="Finanzwerte" data-region="Europa"
+        data-rating="" data-datum="2026-06-23">
+        <p class="eyebrow">Finanzwerte</p>
+        <h3 class="card-title">UniCredit</h3>
+        <p class="card-meta">UCG.MI · Europa</p>
+        <div class="card-foot"><span class="badge badge-watch">Watchlist</span><span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span></div>
+      </a>
+      <a class="card analyse-card" href="../analysen/zoom-communications.html"
+        data-name="zoom communications" data-ticker="zm"
+        data-sektor="Software &amp; Internet" data-region="USA"
+        data-rating="5.5" data-datum="2026-05-30">
+        <p class="eyebrow">Software &amp; Internet</p>
+        <h3 class="card-title">Zoom Communications</h3>
+        <p class="card-meta">ZM · USA</p>
+        <div class="card-foot"><span class="badge badge-rating">Score 5.5</span><span class="chevron-link"><span class="chev" aria-hidden="true">›</span> Zur Analyse</span></div>
+      </a>
+    </div>
+    <p class="no-results" id="f-empty" hidden>Keine Analysen passen zu deiner Auswahl.</p>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <p class="wordmark wordmark-footer"><span class="wm-main">Finanzanalysen</span><span class="wm-accent">mit&nbsp;Claude</span></p>
+      <p class="footer-note">Keine Anlageberatung — rein informative Auswertung öffentlich verfügbarer Daten.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer"><a href="../index.html">Start</a><a href="../analysen/index.html" class="is-active">Analysen</a><a href="../rankings/index.html">Rankings</a><a href="../markt/index.html">Markt</a><a href="../disclaimer.html">Disclaimer</a></nav>
+    <div class="footer-meta">
+      <p>✦ Erstellt mit Claude</p>
+      <p><a href="../disclaimer.html">Disclaimer &amp; Hinweise</a></p>
+    </div>
+  </div>
+</footer>
+<script src="../assets/filter.js" defer></script>
+</body>
+</html>

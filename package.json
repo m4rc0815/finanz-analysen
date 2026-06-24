@@ -1,0 +1,17 @@
+{
+  "name": "finanz-webseite",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Statische Finanz-Webseite (Aktienanalysen & Rankings) aus dem Obsidian-Vault, BlackRock-inspiriertes Design, gehostet auf GitHub Pages.",
+  "scripts": {
+    "build": "node build.mjs",
+    "preview": "node build.mjs && npx --yes serve docs -l 4173",
+    "serve": "npx --yes serve docs -l 4173",
+    "deploy": "bash deploy.sh"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "markdown-it": "^14.1.0"
+  }
+}

@@ -1,0 +1,709 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Interactive Brokers (IBKR) — Analyse · Finanzanalysen mit Claude</title>
+<meta name="description" content="Aktienanalysen &amp; Rankings — Keine Anlageberatung — rein informative Auswertung öffentlich verfügbarer Daten.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body class="">
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="wordmark" href="../index.html">
+      <span class="wm-main">Finanzanalysen</span><span class="wm-accent">mit&nbsp;Claude</span>
+    </a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-cb" hidden>
+    <nav class="main-nav" aria-label="Hauptnavigation"><a href="../index.html">Start</a><a href="../analysen/index.html" class="is-active">Analysen</a><a href="../rankings/index.html">Rankings</a><a href="../markt/index.html">Markt</a><a href="../disclaimer.html">Disclaimer</a></nav>
+    <span class="claude-pill" title="Diese Seite und ihre Inhalte wurden mit Claude erstellt.">✦ Erstellt mit Claude</span>
+    <label for="nav-toggle" class="nav-toggle" aria-label="Menü öffnen">☰</label>
+  </div>
+</header>
+<main id="main">
+<section class="hero hero-detail">
+  <div class="container">
+    <p class="eyebrow">Finanzwerte · USA</p>
+    <h1 class="hero-title">Interactive Brokers</h1>
+    <p class="hero-meta">IBKR · Datenstand 23.06.2026</p>
+    <div class="badge-row"><span class="badge badge-watch">Watchlist</span><span class="badge">USA</span><span class="badge">Finanzwerte</span></div>
+    <p class="backlink"><a href="../analysen/index.html"><span class="chev" aria-hidden="true">›</span> Alle Analysen</a></p>
+  </div>
+</section>
+<article class="prose"><blockquote>
+<p><strong>Hinweis Aktiensplit:</strong> IBKR vollzog im <strong>Juni 2025 einen 4:1-Split</strong>. Alle Kurs- und EPS-Werte in dieser Analyse sind split-bereinigt. Vor-Split-Quartale (z. B. Q4 2024 mit EPS „1,99&quot;) werden zur Vergleichbarkeit auf die heutige Skala umgerechnet (÷4).</p>
+<p><strong>Hinweis Konzernstruktur:</strong> IBKR ist eine Holding. Die börsennotierte <strong>Class-A-Aktie</strong> repräsentiert nur einen Minderheitsanteil; Gründer <strong>Thomas Peterffy</strong> und das Management halten über Class-B / IBG LLC die wirtschaftliche Mehrheit (~70 %+). Daher weichen Kennzahlen je nach Berechnungsbasis stark ab: <strong>Börsenwert der Class A ≈ 43 Mrd. USD</strong> (Finviz), <strong>vollkonsolidierter Unternehmenswert ≈ 164 Mrd. USD</strong> (yfinance). Beide Werte sind unten ausgewiesen.</p>
+</blockquote>
+<hr>
+<h2>📈 1. Kursentwicklung</h2>
+<p><strong>Aktueller Kurs:</strong> 96,82 USD | <strong>Veränderung heute:</strong> +0,85 % (Vortagesschluss 96,00 USD)</p>
+<h3>Chart – 2 Jahre</h3>
+<figure class="chart"><img src="../charts/IBKR_2y.png" alt="IBKR – 2 Jahre" loading="lazy"></figure>
+<h3>Chart – 3 Monate</h3>
+<figure class="chart"><img src="../charts/IBKR_3m.png" alt="IBKR – 3 Monate" loading="lazy"></figure>
+<div class="table-wrap">
+<table class="fin-table"><thead>
+<tr>
+<th>Zeitraum</th>
+<th>Kurs Start</th>
+<th>Kurs Ende</th>
+<th>Veränderung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2 Jahre</td>
+<td>29,95 USD</td>
+<td>96,82 USD</td>
+<td><strong>+223 %</strong></td>
+</tr>
+<tr>
+<td>3 Monate</td>
+<td>67,77 USD</td>
+<td>96,82 USD</td>
+<td><strong>+43 %</strong></td>
+</tr>
+<tr>
+<td>YTD 2026</td>
+<td>—</td>
+<td>96,82 USD</td>
+<td><strong>+50,6 %</strong> (Finviz)</td>
+</tr>
+<tr>
+<td>52-Wochen-Hoch</td>
+<td>—</td>
+<td>~97,8 USD</td>
+<td>—</td>
+</tr>
+<tr>
+<td>52-Wochen-Tief</td>
+<td>—</td>
+<td>~49,3–50,8 USD</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+</div><p>Der Kurs notiert praktisch am <strong>Allzeit- bzw. 52-Wochen-Hoch</strong> (~-1 % vom Hoch). Über 12 Monate liegt die Performance je nach Quelle bei <strong>+72 % bis +88 %</strong>.</p>
+<p>🔗 Interaktiver Chart: <a href="https://www.tradingview.com/symbols/NASDAQ-IBKR/" target="_blank" rel="noopener noreferrer">TradingView IBKR</a></p>
+<hr>
+<h2>💹 2. KGV-Entwicklung (Kurs-Gewinn-Verhältnis)</h2>
+<p><strong>Aktuelles KGV (trailing):</strong> ~41,5 | <strong>Forward-KGV:</strong> ~33,7</p>
+<div class="table-wrap">
+<table class="fin-table"><thead>
+<tr>
+<th>Zeitraum</th>
+<th>KGV</th>
+<th>Einordnung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aktuell (trailing)</td>
+<td>~41,6</td>
+<td>deutlich über historischem IBKR-Schnitt (~20–25)</td>
+</tr>
+<tr>
+<td>Forward (2026e)</td>
+<td>~33,7</td>
+<td>erwartetes Gewinnwachstum eingepreist</td>
+</tr>
+<tr>
+<td>Branche (Broker/Diversified Financials)</td>
+<td>~15–20</td>
+<td>IBKR mit klarem Premium</td>
+</tr>
+<tr>
+<td>Historisch (Mittel 3–5 J.)</td>
+<td>~22–26</td>
+<td>aktuelle Bewertung am oberen Rand</td>
+</tr>
+</tbody>
+</table>
+</div><p><strong>Bewertung:</strong> Das KGV ist <strong>historisch hoch</strong> und liegt deutlich über dem Broker-Branchenschnitt. Begründbar durch überdurchschnittliches strukturelles Wachstum (Konten +31 %, Vermögen +38 %) und 77–79 % Vorsteuermarge — aber es bietet wenig Puffer bei Wachstumsenttäuschung oder Zinssenkungen.</p>
+<hr>
+<h2>💰 3. Sales Multiple (Kurs-Umsatz-Verhältnis / P/S) &amp; Broker-Kennzahlen</h2>
+<div class="table-wrap">
+<table class="fin-table"><thead>
+<tr>
+<th>Kennzahl</th>
+<th>Wert</th>
+<th>Basis</th>
+<th>Einordnung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P/S (Class A, börsennotiert)</td>
+<td>~4,0</td>
+<td>Finviz</td>
+<td>für einen margenstarken Broker moderat</td>
+</tr>
+<tr>
+<td>P/S (vollkonsolidiert)</td>
+<td>~25,5</td>
+<td>yfinance</td>
+<td>inkl. Minderheitsanteile → optisch hoch</td>
+</tr>
+<tr>
+<td>Vorsteuermarge</td>
+<td><strong>77–79 %</strong></td>
+<td>Q1 2026 / Q4 2025</td>
+<td>außergewöhnlich hoch für die Branche</td>
+</tr>
+<tr>
+<td>Marktkapitalisierung (Class A)</td>
+<td>~43,1 Mrd. USD</td>
+<td>Finviz</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Unternehmenswert (konsolidiert)</td>
+<td>~164 Mrd. USD</td>
+<td>yfinance</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+</div><p><strong>Trend:</strong> Bei einem Broker ist das P/S nachrangig; entscheidend sind <strong>Net Interest Income, Provisionserträge und Vorsteuermarge</strong>. Die Margenexpansion (77 %+) stützt die Premium-Bewertung. <em>Saubere historische P/S-Reihe split-/strukturbereinigt: nur eingeschränkt verfügbar.</em></p>
+<hr>
+<h2>📊 4. Handelsvolumen (Trading Volume)</h2>
+<div class="table-wrap">
+<table class="fin-table"><thead>
+<tr>
+<th>Zeitraum</th>
+<th>Ø Tagesvolumen</th>
+<th>Auffälligkeiten</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3-Monats-Durchschnitt</td>
+<td>~4,9 Mio. Aktien</td>
+<td>stabil erhöht</td>
+</tr>
+<tr>
+<td>10-Tage-Durchschnitt</td>
+<td>~4,6 Mio. Aktien</td>
+<td>leicht unter 3M-Schnitt</td>
+</tr>
+<tr>
+<td>2-Jahres-Durchschnitt</td>
+<td><em>nicht sauber verfügbar</em> (Split verzerrt Reihe)</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+</div><p><strong>Volumentrend:</strong> Liquide, mit erhöhtem Volumen rund um Quartalszahlen und die SEC-PDT-Regeländerung (Juni 2026). Keine ungewöhnlichen Ausreißer im aktuellen Quartal.</p>
+<hr>
+<h2>🏦 5. Insider Trades (letzte ~12–24 Monate)</h2>
+<div class="table-wrap">
+<table class="fin-table"><thead>
+<tr>
+<th>Datum</th>
+<th>Name</th>
+<th>Funktion</th>
+<th>Kauf/Verkauf</th>
+<th>Aktien</th>
+<th>Preis</th>
+<th>Wert</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>27.05.2026</td>
+<td>Ro Khanna</td>
+<td>Kongress (politisch)</td>
+<td>Kauf</td>
+<td>—</td>
+<td>80,95</td>
+<td>1–15k USD</td>
+</tr>
+<tr>
+<td>08.05.2026</td>
+<td>Denis Mendonca</td>
+<td>CAO</td>
+<td>Verkauf (Steuer)</td>
+<td>11.157</td>
+<td>84,42</td>
+<td>~942k USD</td>
+</tr>
+<tr>
+<td>01.05.2026</td>
+<td>Lori A. Conkling</td>
+<td>Direktorin</td>
+<td>Kauf</td>
+<td>25</td>
+<td>79,64</td>
+<td>~1.991 USD</td>
+</tr>
+<tr>
+<td>28.04.2026</td>
+<td>Lawrence E. Harris</td>
+<td>Direktor</td>
+<td><strong>Verkauf</strong></td>
+<td>26.000</td>
+<td>76,93</td>
+<td><strong>2,0 Mio. USD</strong></td>
+</tr>
+<tr>
+<td>01.04.2026</td>
+<td>Lori A. Conkling</td>
+<td>Direktorin</td>
+<td>Kauf</td>
+<td>25</td>
+<td>68,38</td>
+<td>~1.710 USD</td>
+</tr>
+<tr>
+<td>27.01.2026</td>
+<td>Earl H. Nemser</td>
+<td>Vice Chairman</td>
+<td><strong>Verkauf</strong></td>
+<td>60.200</td>
+<td>75,30</td>
+<td><strong>4,5 Mio. USD</strong></td>
+</tr>
+<tr>
+<td>26.01.2026</td>
+<td>Earl H. Nemser</td>
+<td>Vice Chairman</td>
+<td><strong>Verkauf</strong></td>
+<td>94.800</td>
+<td>76,19</td>
+<td><strong>7,2 Mio. USD</strong></td>
+</tr>
+<tr>
+<td>23.01.2026</td>
+<td>Earl H. Nemser</td>
+<td>Vice Chairman</td>
+<td><strong>Verkauf</strong></td>
+<td>145.000</td>
+<td>77,85</td>
+<td><strong>11,3 Mio. USD</strong></td>
+</tr>
+</tbody>
+</table>
+</div><p><strong>3-Monats-Überblick:</strong> Überwiegend <strong>Netto-Verkäufe</strong> (Harris, Mendonca), nur Mini-Käufe von Direktorin Conkling.
+<strong>12-Monats-Überblick:</strong> <strong>Stark verkaufslastig</strong> — Insider-Verkäufe ~<strong>114 Mio. USD</strong> gegenüber nur ~30 Tsd. USD Käufen (v. a. Nemser, CFO Brody, Harris).</p>
+<blockquote>
+<p><strong>Kontext hoher Insider-Besitz:</strong> Gründer <strong>Thomas Peterffy</strong> kontrolliert über die Holding-Struktur die wirtschaftliche Mehrheit. Die Class-A-Insider-Quote liegt bei nur <strong>~2,8–3,1 %</strong>. Die regelmäßigen Verkäufe einzelner Manager sind bei einem Gründer-dominierten Unternehmen mit langjährigen Vesting-/Diversifikationsprogrammen üblich und nicht zwingend ein bärisches Signal — die Häufung großer Nemser-Verkäufe nahe Hoch ist dennoch zu beachten.</p>
+</blockquote>
+<p><em>Quelle: SEC Edgar / MarketBeat / StockTitan</em></p>
+<hr>
+<h2>🩳 6. Short-Positionen</h2>
+<p><strong>Aktuelle Short Quote:</strong> ~<strong>3,1 %</strong> des Streubesitzes (Float) | <strong>Short Ratio:</strong> ~2,7 Tage</p>
+<div class="table-wrap">
+<table class="fin-table"><thead>
+<tr>
+<th>Kennzahl</th>
+<th>Wert</th>
+<th>Einordnung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Short Float</td>
+<td>~3,1 %</td>
+<td>niedrig</td>
+</tr>
+<tr>
+<td>Short Ratio (Days to Cover)</td>
+<td>~2,7</td>
+<td>gering</td>
+</tr>
+</tbody>
+</table>
+</div><p><strong>Einschätzung:</strong> <strong>Niedrige</strong> Short-Quote — kein nennenswerter Bärendruck, keine Short-Squeeze-Dynamik. Der Markt ist überwiegend long positioniert; das passt zur Nähe am ATH.</p>
+<hr>
+<h2>🗞️ 7. Aktuelle Nachrichten</h2>
+<div class="table-wrap">
+<table class="fin-table"><thead>
+<tr>
+<th>Datum</th>
+<th>Quelle</th>
+<th>Nachricht</th>
+<th>Relevanz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>22.06.2026</td>
+<td>StockTitan/Investing</td>
+<td>IBKR integriert <strong>ChatGPT und Grok</strong> in agentische Trading-Tools (nach Claude-Start)</td>
+<td>Hoch</td>
+</tr>
+<tr>
+<td>Juni 2026</td>
+<td>NerdWallet/Schwab</td>
+<td><strong>SEC schafft 25.000-USD-PDT-Regel ab</strong> (in Kraft seit 04.06.); IBKR setzt sofort um → volumenfördernd</td>
+<td>Hoch</td>
+</tr>
+<tr>
+<td>Mai 2026</td>
+<td>Businesswire</td>
+<td>IBKR öffnet als <strong>erster US-Broker Zugang zum koreanischen Aktienmarkt</strong> (KRX, &gt;2.700 Titel)</td>
+<td>Hoch</td>
+</tr>
+<tr>
+<td>Mai 2026</td>
+<td>LeapRate</td>
+<td><strong>Prediction-Markets-Plattform</strong> vereint Kalshi, CME, ForecastEx in einem Interface</td>
+<td>Mittel</td>
+</tr>
+<tr>
+<td>23.04.2026</td>
+<td>StockTitan/Simply Wall St</td>
+<td><strong>Q1 2026: Rekordumsatz 1,67 Mrd. USD</strong>, Margenexpansion, Dividende auf 0,0875 USD erhöht</td>
+<td>Hoch</td>
+</tr>
+<tr>
+<td>Juni 2026</td>
+<td>Seeking Alpha</td>
+<td><strong>Wolfe Research</strong> startet Coverage mit „Outperform&quot;, Kursziel <strong>101 USD</strong></td>
+<td>Mittel</td>
+</tr>
+<tr>
+<td>April 2026</td>
+<td>Benzinga/24-7 Wall St</td>
+<td>Gründer <strong>Peterffy</strong> fordert öffentlich Legalisierung von Insider-Trading (Odd-Lots-Podcast)</td>
+<td>Gering</td>
+</tr>
+<tr>
+<td>Juni 2026</td>
+<td>MarketBeat/TipRanks</td>
+<td>Analysten-Konsens <strong>„Buy&quot;</strong>, Durchschnittsziele ~83–91 USD (teils unter Kurs)</td>
+<td>Mittel</td>
+</tr>
+</tbody>
+</table>
+</div><p><strong>Sentiment:</strong> <strong>Überwiegend positiv</strong> — Produkt-/Markt-Expansion (Korea, Prediction Markets, AI), regulatorischer Rückenwind (PDT). Dämpfer: einige Analysten-Kursziele liegen <strong>unter</strong> dem aktuellen Kurs → Bewertung als Streitpunkt.</p>
+<hr>
+<h2>📋 8. Letzte 3 Quartalsberichte <em>(split-bereinigt)</em></h2>
+<h3>Q1 2026 (Quartal endete 31.03.2026)</h3>
+<div class="table-wrap">
+<table class="fin-table"><thead>
+<tr>
+<th>Kennzahl</th>
+<th>Ist</th>
+<th>Erwartung</th>
+<th>Abweichung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nettoumsatz (GAAP)</td>
+<td>1,67 Mrd. USD</td>
+<td>~1,6 Mrd. USD</td>
+<td>✅ über Erwartung</td>
+</tr>
+<tr>
+<td>EPS (adjustiert)</td>
+<td>0,60 USD</td>
+<td>~0,55–0,58 USD</td>
+<td>✅ Beat</td>
+</tr>
+<tr>
+<td>Net Interest Income</td>
+<td>904 Mio. USD (+17 %)</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Provisionserträge</td>
+<td>613 Mio. USD (+19 %)</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Vorsteuermarge</td>
+<td>77 %</td>
+<td>—</td>
+<td>sehr hoch</td>
+</tr>
+</tbody>
+</table>
+</div><p><strong>Guidance:</strong> Konten 4,75 Mio. (+31 % YoY), Kundenvermögen 789,4 Mrd. USD (+38 % YoY); Dividende erhöht auf 0,0875 USD/Q.
+<strong>Kursreaktion:</strong> positiv im Umfeld der Zahlen; Kurs anschließend Richtung ATH.</p>
+<hr>
+<h3>Q4 2025 (Quartal endete 31.12.2025)</h3>
+<div class="table-wrap">
+<table class="fin-table"><thead>
+<tr>
+<th>Kennzahl</th>
+<th>Ist</th>
+<th>Erwartung</th>
+<th>Abweichung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nettoumsatz (GAAP)</td>
+<td>1,64 Mrd. USD</td>
+<td>~1,6 Mrd. USD</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>EPS (adjustiert)</td>
+<td>0,65 USD</td>
+<td>~0,60 USD</td>
+<td>✅ Beat</td>
+</tr>
+<tr>
+<td>Net Interest Income</td>
+<td>966 Mio. USD (+20 %)</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Provisionserträge</td>
+<td>582 Mio. USD (+22 %)</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Vorsteuermarge</td>
+<td>79 %</td>
+<td>—</td>
+<td>Rekordbereich</td>
+</tr>
+</tbody>
+</table>
+</div><p><strong>Guidance:</strong> Starkes Konto- und Volumenwachstum, NII weiter Haupttreiber.
+<strong>Kursreaktion:</strong> positiv.</p>
+<hr>
+<h3>Q3 2025 (Quartal endete 30.09.2025)</h3>
+<div class="table-wrap">
+<table class="fin-table"><thead>
+<tr>
+<th>Kennzahl</th>
+<th>Ist</th>
+<th>Erwartung</th>
+<th>Abweichung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nettoumsatz (GAAP)</td>
+<td>1,655 Mrd. USD</td>
+<td>~1,6 Mrd. USD</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>EPS (GAAP / adj.)</td>
+<td>0,59 / 0,57 USD</td>
+<td>~0,53 USD</td>
+<td>✅ Beat</td>
+</tr>
+<tr>
+<td>Provisionserträge</td>
+<td>537 Mio. USD (+23 %)</td>
+<td>—</td>
+<td>Aktienvolumen +67 %, Optionen +27 %</td>
+</tr>
+<tr>
+<td>Nettoumsatz Vorjahr</td>
+<td>1,365 Mrd. USD</td>
+<td>—</td>
+<td>+21 % YoY</td>
+</tr>
+</tbody>
+</table>
+</div><p><strong>Guidance:</strong> Anhaltend zweistelliges Wachstum bei Konten und Handelsvolumen.
+<strong>Kursreaktion:</strong> positiv.</p>
+<blockquote>
+<p><strong>Muster:</strong> Drei aufeinanderfolgende Quartale mit Beats, zweistelligem Umsatzwachstum und 77–79 % Vorsteuermarge. NII bleibt der wichtigste Einzeltreiber — und damit die größte Zinssensitivität.</p>
+</blockquote>
+<hr>
+<h2>🌍 9. Marktkontext &amp; Wettbewerb</h2>
+<p><strong>Markt / Branche:</strong> Globaler Online-Brokerage- / Trading-Plattform-Markt. Plattform-Umsatzmarkt ~11–13 Mrd. USD (2026), CAGR ~6–9 %. Der nach Kundenvermögen adressierbare Markt ist um Größenordnungen größer (Schwab ~11,8 Bio., Fidelity ~14,1 Bio. USD AUM). Eine einheitliche TAM-Zahl nach Assets ist <em>nicht verfügbar</em>.</p>
+<div class="table-wrap">
+<table class="fin-table"><thead>
+<tr>
+<th>Wettbewerber</th>
+<th>Stärke ggü. IBKR</th>
+<th>Schwäche ggü. IBKR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Charles Schwab (SCHW)</strong></td>
+<td>Riesige Skala (~11,8 Bio. USD AUM), Vollbank/Wealth, thinkorswim</td>
+<td>Höhere Kosten, weniger global, kein Krypto</td>
+</tr>
+<tr>
+<td><strong>Robinhood (HOOD)</strong></td>
+<td>Mobile-UX, junge Zielgruppe, Zero-Commission, Krypto</td>
+<td>Sehr kleine Konten (~12,5k USD Ø), US-zentriert, schwächere Profi-Tools</td>
+</tr>
+<tr>
+<td><strong>Trade Republic</strong></td>
+<td>EU-Neobroker-Marktführer (~10 Mio. Nutzer), günstig</td>
+<td>EU-Fokus, keine Profi-/API-Tiefe, kein US-Direktzugang in IBKR-Breite</td>
+</tr>
+<tr>
+<td><strong>eToro (ETOR)</strong></td>
+<td>Social-/Copy-Trading, Krypto, Retail-Marke</td>
+<td>Deutlich kleiner, höhere Spreads, weniger Profi-Tools</td>
+</tr>
+<tr>
+<td><strong>Webull</strong></td>
+<td>Aktive-Trader-Tools, Charting, Krypto, Futures</td>
+<td>Kleiner, geringere Skala/Bilanzstärke, weniger global</td>
+</tr>
+<tr>
+<td><strong>Fidelity</strong></td>
+<td>Enorme Skala (~14,1 Bio. USD AUM), Service</td>
+<td>Privat (kein Aktienzugang), weniger auf globalen Direkthandel ausgerichtet</td>
+</tr>
+</tbody>
+</table>
+</div><p><strong>Branchentrends:</strong> (1) <strong>Retail-/Optionen-Boom</strong>, 0DTE ~59 % des SPX-Optionsvolumens; (2) <strong>Krypto- &amp; Prediction-Markets-Integration</strong>; (3) <strong>Zinswende</strong> — Senkungen 2026 verengen den NII-Spread; (4) <strong>Internationale Expansion</strong> (Korea-Launch); (5) <strong>PDT-Regel-Wegfall</strong> senkt Eintrittsbarriere für aktive Kleintrader (volumenfördernd).</p>
+<p><strong>Marktposition:</strong> IBKR ist <strong>führend im Profi-/Active-Trader- und globalen Direktzugang-Segment</strong> — niedrigste Kosten, höchste Marge (77–79 %), globalste Abdeckung. Schwäche: kleinste absolute Kontobasis unter den US-Großen und geringere Massen-Retail-Markenbekanntheit als Robinhood/Trade Republic.</p>
+<p><strong>Risiken aus dem Marktumfeld:</strong></p>
+<ul>
+<li><strong>Zinssensitivität:</strong> −25 bp Fed Funds ≈ <strong>−80 Mio. USD</strong> Jahres-NII → größtes Margenrisiko 2026.</li>
+<li><strong>Volumenabhängigkeit:</strong> Provisionen sinken bei ruhigeren Märkten/Risk-off.</li>
+<li><strong>Wettbewerb durch Zero-Commission-Broker</strong> drückt auf Preise/Massen-Retail.</li>
+<li><strong>Regulierung:</strong> PDT-Wegfall chancenreich, generelle Regulierungsabhängigkeit bleibt.</li>
+</ul>
+<hr>
+<h2>📝 Gesamteinschätzung</h2>
+<p><strong>Stärken:</strong></p>
+<ul>
+<li>Strukturelles Wachstum: Konten <strong>+31 %</strong>, Kundenvermögen <strong>+38 %</strong> YoY — außergewöhnlich für einen etablierten Broker</li>
+<li><strong>77–79 % Vorsteuermarge</strong> — Spitzenwert der Branche, niedrigste Kostenbasis</li>
+<li>Drei aufeinanderfolgende Quartals-Beats, Dividendenerhöhung, starke Bilanz</li>
+<li>Innovations-/Expansionspipeline: Korea, Prediction Markets, AI-Integration (Claude/ChatGPT/Grok), PDT-Rückenwind</li>
+<li>Niedrige Short-Quote, breite Long-Positionierung</li>
+</ul>
+<p><strong>Risiken:</strong></p>
+<ul>
+<li><strong>Hohe Bewertung</strong> (KGV ~41,5, Forward ~34) am 52-Wochen-Hoch — wenig Fehlerpuffer</li>
+<li><strong>Zinssensitivität</strong> des NII: Zinssenkungen 2026 belasten den wichtigsten Ertragstreiber</li>
+<li>Mehrere <strong>Analysten-Kursziele liegen unter dem aktuellen Kurs</strong> (~83–91 USD)</li>
+<li><strong>Netto-Insider-Verkäufe</strong> (~114 Mio. USD/12M) nahe Hoch</li>
+<li>Volumen-/Marktzyklus-Abhängigkeit; Wettbewerbsdruck im Retail-Segment</li>
+</ul>
+<p><strong>Fazit:</strong> Interactive Brokers ist operativ ein erstklassiges, hochprofitables Wachstumsunternehmen mit strukturellem Rückenwind. Die Aktie ist jedoch <strong>ambitioniert bewertet und notiert am Allzeithoch</strong>, während Zinssenkungen und einige unter dem Kurs liegende Analystenziele kurzfristige Risiken markieren. Qualitativ stark, aber bewertungsseitig anfällig — Einstiegszeitpunkt und Zinsumfeld sind entscheidend.</p>
+<hr>
+<h2>🎯 Ranking-Einordnung</h2>
+<h3>Bewertung nach 5 Kriterien (Punkte 1–10, gewichtet)</h3>
+<div class="table-wrap">
+<table class="fin-table"><thead>
+<tr>
+<th>Kriterium</th>
+<th>Gewicht</th>
+<th>Punkte (1–10)</th>
+<th>Begründung</th>
+<th>Gewichtet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Wachstum</strong></td>
+<td>25 %</td>
+<td>9</td>
+<td>Konten +31 %, Vermögen +38 %, Umsatz +17 %</td>
+<td>2,25</td>
+</tr>
+<tr>
+<td><strong>Profitabilität / Qualität</strong></td>
+<td>25 %</td>
+<td>10</td>
+<td>77–79 % Vorsteuermarge, top der Branche</td>
+<td>2,50</td>
+</tr>
+<tr>
+<td><strong>Bewertung</strong></td>
+<td>20 %</td>
+<td>4</td>
+<td>KGV ~41,5 am ATH, mehrere Ziele unter Kurs</td>
+<td>0,80</td>
+</tr>
+<tr>
+<td><strong>Markt-/Wettbewerbsposition</strong></td>
+<td>15 %</td>
+<td>8</td>
+<td>führend bei Profis/global, kleinste Kontobasis</td>
+<td>1,20</td>
+</tr>
+<tr>
+<td><strong>Momentum / Sentiment</strong></td>
+<td>15 %</td>
+<td>8</td>
+<td>nahe ATH, +50 % YTD, niedrige Shorts, positive News</td>
+<td>1,20</td>
+</tr>
+<tr>
+<td><strong>Gesamt-Score</strong></td>
+<td><strong>100 %</strong></td>
+<td>—</td>
+<td>—</td>
+<td><strong>7,95 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+</div><h3>Szenarien 2031 (5-Jahres-Horizont)</h3>
+<p>Basis: aktueller Kurs <strong>96,82 USD</strong>. Annahmen zu Gewinnwachstum (CAGR) und KGV-Multiple-Entwicklung.</p>
+<div class="table-wrap">
+<table class="fin-table"><thead>
+<tr>
+<th>Szenario</th>
+<th>Annahmen</th>
+<th>Kursziel 2031</th>
+<th>Potenzial vs. 96,82 USD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bär</strong></td>
+<td>Zinssenkungen drücken NII, Wachstum verlangsamt, KGV-De-Rating auf ~22</td>
+<td>~80 USD</td>
+<td><strong>−17 %</strong></td>
+</tr>
+<tr>
+<td><strong>Base</strong></td>
+<td>Solides zweistelliges Wachstum, KGV normalisiert auf ~28</td>
+<td>~165 USD</td>
+<td><strong>+70 %</strong></td>
+</tr>
+<tr>
+<td><strong>Bull</strong></td>
+<td>Anhaltend hohes Konto-/Volumenwachstum, Premium-KGV ~33 hält</td>
+<td>~245 USD</td>
+<td><strong>+153 %</strong></td>
+</tr>
+</tbody>
+</table>
+</div><p><strong>5-Jahres-Potenzial-Spanne: −17 % bis +153 %.</strong></p>
+<hr>
+<div class="callout callout-quote">
+<div class="callout-title">❝ Disclaimer</div>
+<div class="callout-body">
+<p>Diese Analyse dient ausschließlich Informationszwecken und stellt <strong>keine Anlageberatung</strong> dar. Sie basiert auf öffentlich verfügbaren Daten (Stand 23.06.2026), die unvollständig oder fehlerhaft sein können. Kennzahlen weichen je nach Quelle und Konzern-/Splitbereinigung ab. Keine Gewähr für Richtigkeit oder Vollständigkeit. Investitionsentscheidungen erfolgen auf eigenes Risiko.</p>
+</div>
+</div>
+<p><em>Datenquellen: Yahoo Finance · Finviz · MarketBeat · StockTitan · SEC Edgar · Simply Wall St · Businesswire · <a href="http://Investing.com" target="_blank" rel="noopener noreferrer">Investing.com</a> · Seeking Alpha · Reuters/Bloomberg-Sekundärquellen</em></p>
+<hr>
+<p>⬅️ Zurück zur Shortlist: <a href="../rankings/momentum-shortlist.html">00_Momentum-Aktien USA-EU-Asien – 5-Jahres-Shortlist 2026-06-23</a></p>
+</article>
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <p class="wordmark wordmark-footer"><span class="wm-main">Finanzanalysen</span><span class="wm-accent">mit&nbsp;Claude</span></p>
+      <p class="footer-note">Keine Anlageberatung — rein informative Auswertung öffentlich verfügbarer Daten.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer"><a href="../index.html">Start</a><a href="../analysen/index.html" class="is-active">Analysen</a><a href="../rankings/index.html">Rankings</a><a href="../markt/index.html">Markt</a><a href="../disclaimer.html">Disclaimer</a></nav>
+    <div class="footer-meta">
+      <p>✦ Erstellt mit Claude</p>
+      <p><a href="../disclaimer.html">Disclaimer &amp; Hinweise</a></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
