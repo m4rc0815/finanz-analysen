@@ -1,5 +1,20 @@
-// HTML-Templates im modernen Fintech-Stil.
+// HTML-Templates im NotebookLM-inspirierten Stil.
 import * as cfg from "../config.mjs";
+import { readFileSync } from "node:fs";
+import { createHash } from "node:crypto";
+import { fileURLToPath } from "node:url";
+
+// Cache-Buster: kurzer Hash über den Inhalt der style.css.
+// Ändert sich nur, wenn sich das CSS ändert → Browser laden dann automatisch neu,
+// statt bis zu 10 Min die zwischengespeicherte Datei zu verwenden.
+const ASSET_VER = (() => {
+  try {
+    const cssPath = fileURLToPath(new URL("../assets/style.css", import.meta.url));
+    return createHash("sha1").update(readFileSync(cssPath)).digest("hex").slice(0, 8);
+  } catch {
+    return "1";
+  }
+})();
 
 const esc = (s) =>
   String(s ?? "")
@@ -51,7 +66,7 @@ export function documentShell({
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="${relRoot}assets/style.css">
+<link rel="stylesheet" href="${relRoot}assets/style.css?v=${ASSET_VER}">
 </head>
 <body class="${bodyClass}">
 <a class="skip-link" href="#main">Zum Inhalt springen</a>
