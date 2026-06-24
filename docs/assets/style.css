@@ -210,7 +210,7 @@ a { color: inherit; }
 .prose blockquote p { margin: .3rem 0; }
 
 /* ---------- Tabellen ---------- */
-.table-wrap { overflow-x: auto; margin: 1.3rem 0; border: 1px solid var(--line); }
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1.3rem 0; border: 1px solid var(--line); }
 .fin-table { width: 100%; border-collapse: collapse; font-size: .9rem; font-variant-numeric: tabular-nums; }
 .fin-table th {
   text-align: left; font: 700 .76rem Inter, sans-serif; text-transform: uppercase; letter-spacing: .03em;
@@ -264,4 +264,24 @@ a { color: inherit; }
   .cols-divided .col { border-left: 0; border-top: 1px solid var(--divider); padding: 1.6rem 0 0; }
   .cols-divided .col:first-child { border-top: 0; padding-top: 0; }
   .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+}
+
+/* ---------- Feinschliff für Smartphones ---------- */
+@media (max-width: 600px) {
+  /* Tabellen kompakter, damit weniger seitlich gescrollt werden muss.
+     Der dezente Schatten an der rechten Innenkante signalisiert
+     "hier geht es seitlich weiter" – auf Touch sonst leicht zu übersehen. */
+  .fin-table { font-size: .8rem; }
+  .fin-table th, .fin-table td { padding: .46rem .58rem; }
+  .table-wrap { box-shadow: inset -14px 0 12px -12px rgba(0, 0, 0, .22); }
+
+  /* Filter: Suchfeld und Dropdowns jeweils volle Breite – einheitlich und
+     mit größerer Tippfläche. */
+  .filterbar { gap: .6rem; }
+  .f-input, .f-select { flex: 1 1 100%; width: 100%; }
+  .result-count { width: 100%; margin-left: 0; }
+
+  /* Etwas weniger vertikale Luft, damit mehr Inhalt aufs Display passt. */
+  .section { padding: 2.4rem 0; }
+  .hero { padding-bottom: 1.6rem; }
 }

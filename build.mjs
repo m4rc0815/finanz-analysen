@@ -16,6 +16,12 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DOCS = path.join(__dirname, "docs");
 const ASSETS = path.join(__dirname, "assets");
 
+// docs/ ist reiner Build-Output → vor jedem Build leeren. Sonst hinterlassen
+// entfernte oder ins Archiv verschobene Analysen/Rankings/Charts verwaiste
+// Seiten, die weiter online wären (obwohl nicht mehr verlinkt).
+fs.rmSync(DOCS, { recursive: true, force: true });
+fs.mkdirSync(DOCS, { recursive: true });
+
 // ---------------------------------------------------------------------------
 // Markdown-Renderer
 // ---------------------------------------------------------------------------
