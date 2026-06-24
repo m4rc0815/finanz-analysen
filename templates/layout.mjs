@@ -84,6 +84,7 @@ export function documentShell({
     <label for="nav-toggle" class="nav-toggle" aria-label="Menü öffnen">☰</label>
   </div>
 </header>
+<div class="disclaimer-banner"><div class="container"><strong>Keine Anlageberatung.</strong> Rein informative Auswertung öffentlich verfügbarer Daten — Investitionsentscheidungen eigenverantwortlich. <a href="${relRoot}disclaimer.html">Mehr dazu ›</a></div></div>
 <main id="main">
 ${hero || ""}
 ${content}
@@ -258,8 +259,6 @@ export function landing({ rankings, markt, neueste, total, archivCount = 0, buil
     ${buildDate ? `<p class="hero-stamp">Stand ${esc(buildDate)}</p>` : ""}
   </div>
 </section>
-
-<div class="disclaimer-banner"><div class="container">${esc(cfg.SITE.disclaimerShort)}</div></div>
 
 <section class="band band-dark">
   <div class="container band-split">

@@ -191,6 +191,8 @@ a { color: inherit; }
 .disclaimer-banner { background: var(--yellow); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .disclaimer-banner .container { padding-block: .75rem; font-size: .82rem; color: var(--ink-soft); }
 .disclaimer-banner .container::before { content: "⚠ "; color: var(--accent); font-weight: 700; }
+.disclaimer-banner .container strong { color: var(--ink); }
+.disclaimer-banner a { color: var(--accent); font-weight: 600; text-decoration: underline; white-space: nowrap; }
 
 /* ---------- Filterbar ---------- */
 .filterbar {
