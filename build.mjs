@@ -557,7 +557,7 @@ writePage(
     title: "Rankings",
     relRoot: "../",
     active: "rankings",
-    hero: T.simpleHero({ eyebrow: "Bestenlisten", title: "Rankings", meta: "Value · Wachstum · Momentum" }),
+    hero: T.simpleHero({ eyebrow: "Bestenlisten", title: "Rankings", meta: "Value · Wachstum · Weltraum" }),
     content: T.rankingsIndex(rankings, "../"),
   })
 );

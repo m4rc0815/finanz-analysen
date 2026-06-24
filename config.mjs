@@ -31,7 +31,10 @@ export const EXCLUDE_BASENAMES = new Set([
 ]);
 
 // Basename-Präfixe, die ausgeschlossen werden (z. B. Weltraum-Material).
-export const EXCLUDE_PREFIXES = ["Weltraum"];
+// "00_Momentum": Das Momentum-Ranking wird bewusst NICHT veröffentlicht
+// (auf Wunsch dauerhaft entfernt). Der Präfix fängt auch künftige Datums-
+// Versionen der Vault-Notiz ab, damit es bei keinem Sync wieder auftaucht.
+export const EXCLUDE_PREFIXES = ["Weltraum", "00_Momentum"];
 
 // Zeilen mit privaten Depot-Daten, die aus JEDER Seite entfernt werden.
 // (Marcs persönliche Allianz-Position steht auch in der Allianz-Analyse selbst.)
@@ -64,13 +67,6 @@ export const RANKING_META = {
     eyebrow: "5-Jahres-Potenzial",
     teaser:
       "Aggregiertes Ranking nach 3–5 Jahren Kurspotenzial — Wachstum und Momentum kombiniert.",
-  },
-  "00_Momentum-Aktien USA-EU-Asien – 5-Jahres-Shortlist 2026-06-23": {
-    slug: "momentum-ranking",
-    title: "Momentum-Ranking",
-    eyebrow: "USA · EU · Asien",
-    teaser:
-      "Momentum-Ranking über drei Regionen und neun Branchen — Quality- und aggressive Titel.",
   },
   "00_Weltraum-Aktien 2026-06-15": {
     slug: "weltraum-ranking",
