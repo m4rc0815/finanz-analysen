@@ -131,6 +131,12 @@ export const TICKER_SEKTOR_OVERRIDE = {
   MRVL: "Technologie & Halbleiter", // Marvell
   NXPI: "Technologie & Halbleiter", // NXP Semiconductors
   GOOGL: "Software & Internet", // Alphabet
+  AVGO: "Technologie & Halbleiter", // Broadcom
+  NET: "Software & Internet", // Cloudflare
+  IBM: "Software & Internet", // IBM
+  ZM: "Software & Internet", // Zoom
+  KIT: "Industrie & Verteidigung", // Kitron (KIT.OL)
+  SIE: "Industrie & Verteidigung", // Siemens AG
 };
 
 // --- Region aus Ticker-Suffix ----------------------------------------------
