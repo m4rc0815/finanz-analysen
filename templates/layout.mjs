@@ -1,4 +1,4 @@
-// HTML-Templates im BlackRock-inspirierten Stil.
+// HTML-Templates im modernen Fintech-Stil.
 import * as cfg from "../config.mjs";
 
 const esc = (s) =>
@@ -50,7 +50,7 @@ export function documentShell({
 <meta name="description" content="${esc(cfg.SITE.tagline)} — ${esc(cfg.SITE.disclaimerShort)}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="${relRoot}assets/style.css">
 </head>
 <body class="${bodyClass}">
