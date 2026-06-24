@@ -81,6 +81,7 @@ ${content}
     </div>
   </div>
 </footer>
+<script src="${relRoot}assets/counter.js" defer></script>
 ${scripts}
 </body>
 </html>`;
@@ -294,6 +295,7 @@ export function disclaimerPage(buildDate) {
     <p>Eine Haftung für Vermögensschäden, die aus der Nutzung oder Nichtnutzung der bereitgestellten Informationen entstehen, ist — soweit gesetzlich zulässig — ausgeschlossen. Für die Inhalte externer Links sind ausschließlich deren Betreiber verantwortlich.</p>
 
     <p class="muted">Letzter Stand der Seite: ${esc(buildDate || "—")}.</p>
+    <p class="visit-counter">Besucher gesamt: <span id="visit-count">…</span></p>
   </div></section>`;
 }
 

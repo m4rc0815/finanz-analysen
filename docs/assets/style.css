@@ -227,6 +227,9 @@ a { color: inherit; }
 .chart-note { margin: 1rem 0 1.6rem; font-size: .85rem; color: var(--ink-soft); font-style: italic; }
 .chart-note a { color: var(--ink-soft); }
 
+/* Dezenter Besucherzähler unten im Disclaimer (sehr klein, sehr hell) */
+.visit-counter { margin-top: 2.5rem; font-size: .68rem; color: #cfcfca; letter-spacing: .02em; }
+
 .callout { margin: 1.5rem 0; border: 1px solid var(--line); border-left: 4px solid var(--accent); background: #fafafa; padding: 1rem 1.2rem; }
 .callout-title { font: 700 .95rem Inter, sans-serif; margin-bottom: .35rem; }
 .callout-body > :first-child { margin-top: 0; }
