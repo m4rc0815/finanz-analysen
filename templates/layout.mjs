@@ -61,7 +61,6 @@ export function documentShell({
     </a>
     <input type="checkbox" id="nav-toggle" class="nav-toggle-cb" hidden>
     <nav class="main-nav" aria-label="Hauptnavigation">${nav(relRoot, active)}</nav>
-    <span class="claude-pill" title="Diese Seite und ihre Inhalte wurden mit Claude erstellt.">✦ ${esc(cfg.SITE.claudeBadge)}</span>
     <label for="nav-toggle" class="nav-toggle" aria-label="Menü öffnen">☰</label>
   </div>
 </header>
@@ -222,7 +221,7 @@ export function landing({ rankings, markt, neueste, total, buildDate, relRoot })
       <a class="btn" href="${relRoot}analysen/index.html">${chev} Alle Analysen</a>
       <a class="btn btn-ghost" href="${relRoot}rankings/index.html">${chev} Zu den Rankings</a>
     </div>
-    <p class="hero-stamp">✦ ${esc(cfg.SITE.claudeBadge)}${buildDate ? ` · Stand ${esc(buildDate)}` : ""}</p>
+    ${buildDate ? `<p class="hero-stamp">Stand ${esc(buildDate)}</p>` : ""}
   </div>
 </section>
 
@@ -236,7 +235,7 @@ export function landing({ rankings, markt, neueste, total, buildDate, relRoot })
     </div>
     <div class="band-text">
       <p>Jede Analyse folgt demselben Aufbau: Kursentwicklung, Bewertung (KGV, KBV, P/S), Dividende, Insider-Trades, Quartalszahlen, Wettbewerb und eine Fünf-Jahres-Einschätzung mit Bär-, Basis- und Bull-Szenario. Die Rankings führen die Einzelwerte auf einer einheitlichen Matrix zusammen.</p>
-      <p class="muted">Alle Inhalte wurden mit Claude erstellt und dienen ausschließlich der Information.</p>
+      <p class="muted">Die Inhalte dienen ausschließlich der Information und stellen keine Anlageberatung dar.</p>
     </div>
   </div>
 </section>
