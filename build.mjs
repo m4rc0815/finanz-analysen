@@ -272,6 +272,69 @@ function splitHeading(text) {
   return { title, body: lines.join("\n") };
 }
 
+// ---------------------------------------------------------------------------
+// Ranking-Tabellen: "Score"-Spalte automatisch aus den Analyse-Ratings füllen.
+// Greift nur bei Tabellen mit eigenständiger "Ticker"-Spalte (z. B. Weltraum-
+// Ranking). Tabellen mit eigener Wertung ("Punkte"/"Value-Score" + "Aktie
+// (Ticker)") bleiben unberührt. Eine vorhandene Score-Spalte wird aufgefrischt,
+// fehlt sie, wird sie angehängt — so bleibt die Notiz in Obsidian sichtbar und
+// die Webseite immer synchron zu den Einzelanalysen.
+// ---------------------------------------------------------------------------
+function fmtScoreDE(r) {
+  if (r === null || r === undefined) return "—";
+  const s = Number.isInteger(r) ? r.toFixed(1) : String(r);
+  return s.replace(".", ",");
+}
+function tableCells(line) {
+  return line.trim().replace(/^\|/, "").replace(/\|\s*$/, "").split("|").map((c) => c.trim());
+}
+function isSeparatorRow(line) {
+  return /^\s*\|[\s:|-]+\|\s*$/.test(line) && line.includes("-");
+}
+function injectScoreColumn(md, tickerScore) {
+  const lines = md.split("\n");
+  const out = [];
+  let i = 0;
+  while (i < lines.length) {
+    const line = lines[i];
+    const isHead =
+      line.trim().startsWith("|") && i + 1 < lines.length && isSeparatorRow(lines[i + 1]);
+    if (isHead) {
+      const header = tableCells(line);
+      const tickerIdx = header.findIndex((c) => c.toLowerCase() === "ticker");
+      if (tickerIdx >= 0) {
+        const sep = tableCells(lines[i + 1]);
+        const rows = [];
+        let j = i + 2;
+        while (j < lines.length && lines[j].trim().startsWith("|")) {
+          rows.push(tableCells(lines[j]));
+          j++;
+        }
+        let scoreIdx = header.findIndex((c) => /^score$/i.test(c));
+        if (scoreIdx < 0) {
+          scoreIdx = header.length;
+          header.push("Score");
+          sep.push("---");
+        }
+        const lookup = (t) =>
+          tickerScore.get((t || "").toUpperCase().replace(/\*/g, "").split(".")[0].trim()) || "—";
+        out.push("| " + header.join(" | ") + " |");
+        out.push("| " + sep.join(" | ") + " |");
+        for (const cells of rows) {
+          while (cells.length < header.length) cells.push("");
+          cells[scoreIdx] = lookup(cells[tickerIdx]);
+          out.push("| " + cells.join(" | ") + " |");
+        }
+        i = j;
+        continue;
+      }
+    }
+    out.push(line);
+    i++;
+  }
+  return out.join("\n");
+}
+
 function renderBody(rawMd, { relRoot, registry, chartFiles, copyJobs }) {
   let t = stripContextLines(rawMd);
   t = stripStooqGalleries(t);
@@ -366,6 +429,14 @@ function assignSlugs(list, dir) {
 
 // Aktive Analysen (aus dem Finanz-Ordner)
 const uniqueAnalyses = dedupByTicker(enrichAnalyses(docs.filter((d) => d.type === "analyse")));
+
+// Ticker → Score (deutsche Kommazahl) für die Auto-Score-Spalte in Rankings
+const tickerScore = new Map();
+for (const a of uniqueAnalyses) {
+  if (a.rating !== null && a.ticker) {
+    tickerScore.set(a.ticker.toUpperCase().split(".")[0].trim(), fmtScoreDE(a.rating));
+  }
+}
 assignSlugs(uniqueAnalyses, "analysen");
 
 // Archivierte Analysen (aus "06 Archiv/Aktienanalysen*") → eigener Archiv-Bereich
@@ -486,7 +557,7 @@ for (const a of archivedAnalyses) {
 // 4b) Ranking-Seiten
 for (const r of rankings) {
   const { body } = splitHeading(r.content);
-  const contentHtml = renderBody(body, {
+  const contentHtml = renderBody(injectScoreColumn(body, tickerScore), {
     relRoot: "../",
     registry,
     chartFiles,
